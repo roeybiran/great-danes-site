@@ -1,0 +1,10 @@
+import './global.css';
+import './colors.css';
+import './font-sizes.css';
+import './fonts.css';
+import './prose.css';
+import './scrollbar.css';
+import './sliding-underline.css';
+import './spacing.css';
+import './sr-only.css';
+import './tailwind-preflight.css';
