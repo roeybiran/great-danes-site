@@ -1,27 +1,20 @@
-import styled, { keyframes } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 
 const Button = styled.button`
-  svg {
-    transition: transform 0.3s ease;
-  }
-  svg:hover {
-    transform: translateY(-20%);
-  }
+  stroke: var(--danish-red);
+  stroke-width: 24px;
+  fill: none;
 `;
 
-export default function SearchButton() {
+const SearchButton = () => {
   return (
     <Button>
-      <svg
-        width="24"
-        viewBox="-10 -10 306 314"
-        fill="none"
-        strokeWidth="16"
-        stroke="#C8282C"
-      >
+      <svg width="24" viewBox="-10 -10 306 314">
         <circle cx="128" cy="128" r="125" />
-        <line x1="213.121" y1="220.879" x2="303.631" y2="311.388" />
+        <line x1="213" y1="220" x2="303" y2="311" />
       </svg>
     </Button>
   );
-}
+};
+
+export default SearchButton;

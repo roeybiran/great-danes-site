@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components/macro';
 import { useEffect } from 'react';
 
 const fadeIn = keyframes`
@@ -12,8 +12,8 @@ const fadeIn = keyframes`
 
 const CursorWrapper = styled.div`
   background-color: var(--danish-red);
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
   position: fixed;
   z-index: 1;
   clip-path: circle(50% at 50% 50%);

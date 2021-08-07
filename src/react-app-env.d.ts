@@ -4,8 +4,8 @@
 declare module '*.mp4';
 declare module '*.otf';
 
+// THREE
 type Vector = [number, number, number];
-
 type Tick = (delta: number) => void;
 
 interface Model {
@@ -17,47 +17,103 @@ interface Disposable {
   dispose: () => void;
 }
 
-type AreaName = 'home' | 'introduction' | 'timeline' | 'archive' | 'gallery' | 'craft';
+// Routes
+type PathName =
+  | '/'
+  | '/introduction'
+  | '/timeline'
+  | '/archive'
+  | '/archive/:designer'
+  | '/archive/:designer/:product'
+  | '/gallery'
+  | '/craft'
+  | '/craft/wood'
+  | '/search'
+  | '/credits';
 
-interface CraftItem {
+// Data
+type SearchResult = {
+  header: string;
+  subheader?: string;
+  items: SearchResultItem[];
+};
+
+interface SearchResultItem {
+  title: string;
+  thumbSrc: string;
+  id: string;
+  type: 'designer' | 'product' | 'other';
+}
+
+interface CraftTopic {
   name: string;
   type: 'technique' | 'material';
   keywords: string[];
-  img: string;
+  vidSrc: string;
   id: string;
 }
 
+// Product
 interface Product {
-  id: string;
+  productId: string;
   thumbSrc: string;
-  story: string[];
+  story: (string | GenericMediaItem[])[];
   date: number;
-  tags: ('seating' | 'storage' | 'tables' | 'accessories')[];
   model: string | null;
   nickname: string | null;
-  brand: string | null;
+  brand: Brand | null;
+  productURL: string | null;
+  dimensionsCm: {
+    w: number;
+    h: number;
+    d: number;
+  } | null;
+  categories: ProductCategory[];
+  materials: ProductMaterial[];
 }
+
+type ProductCategory = 'chairs' | 'storage' | 'tables' | 'accessories' | 'sofa';
+type ProductMaterial = 'wood' | 'metal' | 'leather' | 'textile' | 'plastic';
 
 interface Designer {
   firstName: string;
   lastName: string;
-  id: string;
+  designerId: string;
   birth: number;
-  thumbSrc: string;
-  bio: string[];
+  avatarSrc: string;
+  heroSrc: string;
+  bio: ChronologicContentSection[];
   works: Product[];
   death: number | null;
   quote: string | null;
+  introductoryParagraph: string | null;
+  birthPlace: string | null;
+  restingPlace: string | null;
+  education: string[];
+  spouses: { name: string; info: string }[];
+  children: string[];
+  awards: { name: string; date: number }[];
 }
 
-interface GenericContentItem {
-  tag: 'img' | 'p' | 'blockquote';
-  content?: string;
-  caption?: string;
+type Brand =
+  | 'PP Møbler'
+  | 'Salesco AS'
+  | 'Carl Hansen & Søn'
+  | 'Rosendahl'
+  | 'Georg Jensen';
+
+type Timeline = ChronologicContentSection[];
+
+interface ChronologicContentSection {
+  header: string;
+  date: number;
+  text: string[];
+  media: GenericMediaItem[];
+}
+
+interface GenericMediaItem {
+  type: 'img' | 'vid';
+  src: string;
   alt?: string;
-  src?: string;
-}
-
-interface Timeline {
-  segments: { title: string; date: string; content: GenericContentItem[] }[];
+  caption?: string;
 }

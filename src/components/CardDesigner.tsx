@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
+import SlidingUnderline from 'styled/SlidingUnderline';
 
 const StyledListItem = styled.li`
-  --max-thumb-width: 80px;
   display: flex;
   align-items: center;
 
@@ -19,7 +19,7 @@ const StyledListItem = styled.li`
   }
 
   img {
-    max-width: var(--max-thumb-width);
+    max-width: 80px;
     clip-path: circle(50% at 50% 50%);
     position: absolute;
     transform: translate(-112.5%, -50%);
@@ -29,13 +29,12 @@ const StyledListItem = styled.li`
 type DesignerRowProps = {
   name: string;
   imgSrc: string;
+  slug: string;
 };
 
-const DesignerRow = ({ name, imgSrc }: DesignerRowProps) => (
+const DesignerRow = ({ name, imgSrc, slug }: DesignerRowProps) => (
   <StyledListItem>
-    <a className="sliding-underline" href="/">
-      {name}
-    </a>
+    <SlidingUnderline to={slug}>{name}</SlidingUnderline>
     <div>
       <img src={imgSrc} alt={name} />
     </div>

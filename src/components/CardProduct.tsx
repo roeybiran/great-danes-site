@@ -10,7 +10,7 @@ const Wrapper = styled.article`
   gap: var(--space8);
 
   :hover {
-    background-color: var(--danish-white);
+    background-color: var(--product-card-bg-color);
   }
 
   :hover .details {
@@ -28,13 +28,11 @@ const Wrapper = styled.article`
   }
 
   .known {
-    font-weight: 700;
+    font-weight: var(--font-weight-md);
   }
 
   .nickname,
   .unknown {
-    color: var(--gray-500);
-    font-weight: 400;
     font-style: italic;
   }
 

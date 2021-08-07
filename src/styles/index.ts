@@ -1,10 +1,15 @@
-import './global.css';
+// reset
+import './tailwind-preflight.css';
+
+// tokens
 import './colors.css';
 import './font-sizes.css';
-import './fonts.css';
-import './prose.css';
-import './scrollbar.css';
-import './sliding-underline.css';
 import './spacing.css';
+
+// utility
 import './sr-only.css';
-import './tailwind-preflight.css';
+import './prose.css';
+import './fade-slide.css';
+
+import './scrollbar.css';
+import './global.css';

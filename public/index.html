@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Great Danes" />
@@ -11,35 +10,37 @@
     <style>
       @font-face {
         font-family: 'Avenir Next World';
-        src: local('Avenir Next World'), url('fonts/Avenir/Avenir-next-world-regular.otf') format('opentype');
+        src: local('Avenir Next World'),
+          url('/fonts/Avenir/Avenir-next-world-regular.otf') format('opentype');
       }
 
       @font-face {
         font-family: 'Avenir Next World';
-        src: local('Avenir Next World'), url('fonts/Avenir/Avenir-next-world-italic.otf') format('opentype');
+        src: local('Avenir Next World'),
+          url('/fonts/Avenir/Avenir-next-world-italic.otf') format('opentype');
         font-style: italic;
       }
 
       @font-face {
         font-family: 'Avenir Next World';
-        src: local('Avenir Next World'), url('fonts/Avenir/Avenir-next-world-bold.otf') format('opentype');
-        font-weight: 700;
+        src: local('Avenir Next World'),
+          url('/fonts/Avenir/Avenir-next-world-demi.otf') format('opentype');
+        font-weight: 500;
       }
 
       @font-face {
         font-family: 'Avenir Next World';
-        src: local('Avenir Next World'), url('fonts/Avenir/Avenir-next-world-bold-italic.otf') format('opentype');
+        src: local('Avenir Next World'),
+          url('/fonts/Avenir/Avenir-next-world-demi-italic.otf')
+            format('opentype');
         font-style: italic;
-        font-weight: 700;
+        font-weight: 500;
       }
     </style>
     <title>Great Danes</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="overlay"></div>
-    <div id="nav"></div>
-    <div id="canvas-container"></div>
-    <div id="2d"></div>
+    <div id="root"></div>
   </body>
 </html>

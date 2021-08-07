@@ -1,77 +1,136 @@
-import SearchButton from './SearchButton';
-import SoundButton from './SoundButton';
-import styled from 'styled-components';
-import { MouseEventHandler } from 'react';
+import styled from 'styled-components/macro';
+import { useEffect, useState } from 'react';
+import { Pivot as Hamburger } from 'hamburger-react';
+import { Link, useLocation } from 'react-router-dom';
+import NavItem from 'components/NavItem';
+import SearchIcon from 'components/SearchButton';
+import SoundButton from 'components/SoundButton';
+import FullscreenIcon from './FullscreenIcon';
 
 const StyledNav = styled.nav`
   z-index: 1;
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   width: 100%;
   height: var(--navbar-height);
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
   color: var(--danish-red);
   padding-left: var(--bleed);
   padding-right: var(--bleed);
-  display: flex;
-  flex-wrap: nowrap;
-  bottom: 0;
-  column-gap: var(--flow-gap);
+  top: 0;
 
-  .icons-wrapper {
-    display: flex;
-    gap: var(--flow-gap);
-  }
-
-  ul {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    align-items: flex-start;
-    column-gap: calc(1.5 * var(--flow-gap));
-  }
-
-  li:first-child {
-    flex-grow: 1;
-    font-weight: 700;
-  }
-
-  span {
-    letter-spacing: 0;
+  li:active,
+  li:focus {
+    outline: none;
   }
 `;
 
+const PopUp = styled.div`
+  position: relative;
+
+  ul {
+    /* TODO */
+    display: flex;
+    position: absolute;
+    transform: translate(-100%, -150%);
+  }
+`;
+
+const StdLi = styled.li`
+  margin-right: var(--flow-gap);
+  opacity: 0;
+  transition: opacity 0.3s ease-out 0s;
+  pointer-events: none;
+
+  &.open {
+    opacity: 1;
+    transition-timing-function: ease-in;
+    pointer-events: unset;
+  }
+`;
+
+const HomeItem = styled.div`
+  flex-grow: 1;
+  opacity: 1;
+  > * {
+    font-weight: var(--font-weight-md);
+  }
+`;
+
+const SVGItem = styled.div`
+  button {
+    height: 48px;
+    width: 48px;
+    outline: none;
+  }
+
+  svg {
+    margin-left: auto;
+    margin-right: auto;
+    stroke: var(--danish-red);
+  }
+`;
+
+type MenuItem = { title: string; path: string };
+
 interface Props {
-  menuItems: { title: string; id: string }[];
-  onClick: MouseEventHandler;
+  homeItem: MenuItem;
+  navItems: MenuItem[];
+  searchItem: MenuItem;
 }
 
-const NavBar = ({ menuItems, onClick }: Props) => (
-  <StyledNav>
-    <ul>
-      {menuItems.map(({ title, id }) => {
-        return (
-          <li key={id}>
-            <a
-              href="/"
-              data-scene={id}
-              className="sliding-underline"
-              onClick={onClick}
-            >
-              {title.slice(0, -1)}
-              <span style={{ letterSpacing: 0 }}>{title.slice(-1)}</span>
-            </a>
-          </li>
-        );
-      })}
-    </ul>
-    <div className="icons-wrapper">
-      <SearchButton />
-      <SoundButton />
-    </div>
-  </StyledNav>
-);
+const NavBar = ({ homeItem, navItems, searchItem }: Props) => {
+  const location = useLocation();
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+
+  useEffect(() => {
+    setIsBurgerOpen(false);
+    const burgerBars: NodeListOf<HTMLDivElement> = document.querySelectorAll(
+      '.hamburger-react > div > div'
+    );
+    burgerBars.forEach((node) => (node.style.height = '2px'));
+  }, [location]);
+
+  return (
+    <StyledNav style={{ opacity: location.pathname === '/search' ? 0.2 : 1 }}>
+      <HomeItem>
+        <NavItem title={homeItem.title} path={homeItem.path} />
+      </HomeItem>
+      <PopUp>
+        <Hamburger
+          label="Menu"
+          toggled={isBurgerOpen}
+          toggle={setIsBurgerOpen}
+        />
+        <ul>
+          {navItems.map((item) => (
+            <StdLi key={item.path} className={isBurgerOpen ? 'open' : ''}>
+              <NavItem title={item.title} path={item.path} />
+            </StdLi>
+          ))}
+        </ul>
+      </PopUp>
+      <SVGItem>
+        <Link to={searchItem.path}>
+          <SearchIcon />
+        </Link>
+      </SVGItem>
+      <SVGItem>
+        <SoundButton />
+      </SVGItem>
+      <SVGItem>
+        <button
+          onClick={() => {
+            document.documentElement.requestFullscreen();
+          }}
+        >
+          <FullscreenIcon />
+        </button>
+      </SVGItem>
+    </StyledNav>
+  );
+};
 
 export default NavBar;
