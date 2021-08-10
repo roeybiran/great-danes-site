@@ -30,7 +30,7 @@ interface Props {
 const BigQuote = ({ quote, duration }: Props) => {
   const textRef = useRef<HTMLParagraphElement>(null);
   return (
-    <Container>
+    <Container className="big-quote">
       <figure className="prose">
         <blockquote>
           <p ref={textRef}>

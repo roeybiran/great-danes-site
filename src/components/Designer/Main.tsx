@@ -92,47 +92,65 @@ export default function Main({ designer }: Props) {
           death={designer.death}
         />
       </div>
-
       <General designer={designer} />
+      {designer.bio.length > 0 && typeof designer.bio[0] !== 'string' ? (
+        <BioContainer>
+          <TocWrapper>
+            <ToC
+              entries={designer.bio.map((bioSection) => ({
+                // @ts-ignore
+                content: `<a href="#${bioSection.header}">${bioSection.header}, <span>${bioSection.date}</span></a>`,
+                // @ts-ignore
+                id: bioSection.header,
+              }))}
+              baseClass="toc-item"
+              activeClass="active"
+            />
+          </TocWrapper>
 
-      <BioContainer>
-        <TocWrapper>
-          <ToC
-            entries={designer.bio.map((bioSection) => ({
-              content: `<a href="#${bioSection.header}">${bioSection.header}, <span>${bioSection.date}</span></a>`,
-              id: bioSection.header,
-            }))}
-            baseClass="toc-item"
-            activeClass="active"
-          />
-        </TocWrapper>
-        {designer.bio.length > 0 ? (
-          designer.bio.map((bioSection, sectionIdx) => (
+          {designer.bio.map((bioSection, sectionIdx) => (
+            // @ts-ignore
             <section key={bioSection.date}>
+              {/* @ts-ignore */}
               <TextStrip section={bioSection} sectionIndex={sectionIdx} />
+              {/* @ts-ignore */}
               <MediaStrip items={bioSection.media} />
             </section>
-          ))
-        ) : (
-          <ComingSoon>
-            <p>Coming soon. 🇩🇰</p>
-          </ComingSoon>
-        )}
-      </BioContainer>
-
-      <BackToTop>
-        <p>
-          <button
-            onClick={() => {
-              document
-                .getElementById('main-header')
-                ?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            ↑
-          </button>
-        </p>
-      </BackToTop>
+          ))}
+          <BackToTop>
+            <p>
+              <button
+                onClick={() => {
+                  document
+                    .getElementById('main-header')
+                    ?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                ↑
+              </button>
+            </p>
+          </BackToTop>
+        </BioContainer>
+      ) : (
+        <div
+          style={{
+            marginTop: 'var(--space16)',
+            marginBottom: 'var(--space16)',
+          }}
+        >
+          {designer.bio.map((s) => (
+            // @ts-ignore
+            <p
+              className="prose"
+              style={{ marginTop: 'var(--space4)' }}
+              // @ts-ignore
+              key={s}
+            >
+              {s}
+            </p>
+          ))}
+        </div>
+      )}
     </Container>
   );
 }

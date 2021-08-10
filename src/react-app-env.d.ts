@@ -82,7 +82,7 @@ interface Designer {
   birth: number;
   avatarSrc: string;
   heroSrc: string;
-  bio: ChronologicContentSection[];
+  bio: ChronologicContentSection[] | string[];
   works: Product[];
   death: number | null;
   quote: string | null;

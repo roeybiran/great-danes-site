@@ -30,18 +30,24 @@ const wavePath =
   'M256 78.0191C235.277 78.0191 214.964 94.0156 194.446 128C154.196 194.667 113.946 194.667 73.6959 128C33.4459 61.3333 -6.80405 61.3333 -47.054 128C-87.304 194.667 -127.554 194.667 -167.804 128C-187.536 95.3177 -207.453 78.0191 -227 78.0191';
 
 const audio = new Audio('/sounds/ost.mp3');
-const handler = () => {
+audio.addEventListener('timeupdate', () => {
+  console.log(audio.currentTime);
+});
+audio.addEventListener('ended', () => {
   audio.currentTime = 0;
   audio.play();
-};
-audio.addEventListener('ended', handler);
+});
 
 const SoundButton = () => {
   const [isMuted, setMuted] = useState(true);
   isMuted ? audio.pause() : audio.play();
 
   return (
-    <Button onClick={() => setMuted(!isMuted)}>
+    <Button
+      onClick={() => setMuted(!isMuted)}
+      aria-label="Toggle Sound"
+      title="Toggle Sound"
+    >
       <svg width="24" viewBox="0 0 256 256">
         <mask
           id="mask0"

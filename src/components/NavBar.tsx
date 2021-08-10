@@ -135,8 +135,12 @@ const NavBar = ({ homeItem, navItems, searchItem }: Props) => {
       </SVGItem>
       <SVGItem>
         <button
+          aria-label="Toggle Full Screen"
+          title="Toggle Full Screen"
           onClick={() => {
-            document.documentElement.requestFullscreen();
+            document.fullscreenElement
+              ? document.exitFullscreen()
+              : document.documentElement.requestFullscreen();
           }}
         >
           <FullscreenIcon />

@@ -25,6 +25,19 @@ const Grid = styled.div`
     /* line-height: var(--line-height-4xl); */
     /* padding: var(--space8) 0; */
   }
+
+  [data-designer='Hans Wegner'],
+  [data-designer='Kay Bojesen'] {
+    color: var(--danish-red);
+    font-weight: 700;
+  }
+  [data-designer='Hans Wegner']::before,
+  [data-designer='Kay Bojesen']::before {
+    position: absolute;
+    font-size: 0.8em;
+    transform: translateX(-150%);
+    content: '★';
+  }
 `;
 
 function parseDesignersToColumns(designers: Designer[]) {

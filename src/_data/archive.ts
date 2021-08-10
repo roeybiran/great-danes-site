@@ -14,7 +14,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/aksel_bender_madsen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Aksel Bender Madsen, often known simply as Bender Madsen, was a Danish furniture designer who worked closely together with Ejner Larsen producing a wide variety of items during the Danish modern period.',
+      'Born on 16 August 1916 in Ringe on the Danish island of Funen, Madsen was the son of farmer Niels Martin Madsen. After training as a cabinetmaker, he attended the Furniture School at the Royal Danish Academy of Fine Arts, graduating in 1940. Thereafter he worked with architects Kaare Klint and Arne Jacobsen until 1943.',
+      'From 1942, he designed his own models which he exhibited at the annual Cabinetmakers Guild’s exhibitions in Copenhagen. While studying at the Academy, he met Ejner Larsen who became his partner. In 1947, they established a design studio together. The same year, they presented works made by cabinetmaker Willy Beck at the Cabinetmakers Guild’s exhibition in Copenhagen where they continued to participate year after year, working with Beck for a total of 25 years. In addition to sculptural chair designs, they also designed living rooms, bedrooms, shelving, dining tables, and office furniture. Their most notable work is the Metropolitan Chair, in bent plywood, which was exhibited in 1949 and manufactured by Fritz Hansen from 1952. All their works have a clear, timeless, simple style which continues to please today.',
+    ],
     works: [
       {
         productId: '1',
@@ -61,7 +65,12 @@ const designers: Designer[] = [
     children: [],
     awards: [],
     quote: 'The primary factor is... proportions.',
-    bio: [],
+    bio: [
+      'Arne Jacobsen was born on February 11, 1902 in Copenhagen. His father, Johan Jacobsen, was a wholesale trader in safety pins and snap fasteners. His mother, Pouline Jacobsen, was trained as a bank clerk and often painted floral motifs in her spare time. The family lived in Claessensgade, Copenhagen in a typical Victorian style home. Maybe that is why Arne, as a child, painted the coloured wallpaper in his room white, as a contrast to his parents’ overly decorated taste.',
+      'At Nærum Boarding School, he met the Lassen brothers; later, Flemming Lassen was to become his partner in a series of architectural projects. Arne Jacobsen was described as a restless pupil, always up to pranks, and often with a self-deprecating humour. Already as a child, he showed an extraordinary talent for drawing and depicting nature through scrupulous studies. Originally, Jacobsen wanted to be painter, but his father felt that architect was a more sensible choice, and that is how it was. Nevertheless, Jacobsen later had ample opportunity to paint and to express his ideas through highly accurate drawings.',
+      'Jacobsen’s travelling began already in his twenties, when he went to sea. The voyage, the only one in his career as a sailor, went to New York. Then followed an apprenticeship as a bricklayer in Germany and a series of study and drawing excursions to Italy. During this period, Jacobsen produced some of his finest watercolours with classic motifs, where he captures atmospheres and renders materials and shapes accurately and carefully. From the beginning of his career, Jacobsen turned his gaze abroad, without ever abandoning Denmark or the Danish traditions in his field.',
+      'In summarising Jacobsen as a person, one arrives at a picture that reflects to a high degree the nuances in his purely professional production: On the one hand the insistent, perfectionist modernist, to whom no detail was trivial, although the main picture was basically black/white and unambiguous. On the other hand, the nature-loving botanist and jovial family man. Overall, the professionalism and almost nerdy passion for his work are indispensable aspects in descriptions of Jacobsen - including his own descriptions.',
+    ],
     works: [
       {
         productId: '1',
@@ -184,7 +193,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/arne_vodder/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Arne Vodder was trained by Finn Juhl, who became his friend and business partner. Before concentrating on furniture alone, in 1951 he opened his own studio with the architect Anton Borg. Together they designed some 1,100 low-cost houses which proved to be a great success. In the 1950s and 1960s, at a time when Denmark was receiving international recognition for its furniture, he designed a wide range of items. Despite the originality and timelessness of his style, he is not as well known as contemporaries such as Børge Mogensen and Arne Jacobsen. Yet his works are simple and modest, crafted in natural materials such as rosewood and teak and, in particular, are free of sharp edges.',
+      'From the 1950s, Vodder worked with the furniture company Sibast on several sets of office furniture which did particularly well on the American market, even arousing the interest of Jimmy Carter. In the 1960s, the furniture not only reached the White House but could be seen in banks, airline offices, embassies and hotels across the globe. Vodder also arranged international exhibitions in Sweden, England, Austria and the United States together with Verner Panton and Nanna Ditzel. Vodder worked with a number of manufacturers including Cadovius, Nielaus, Erik Jorgensen, Fritz Hansen, Sibast furniture and latterly Kircodan in Bangkok.',
+    ],
     works: [
       {
         productId: '1',
@@ -230,7 +242,9 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/bernt_petersen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Bernt Petersen often known simply as Bernt, was a Danish furniture designer. Trained as a cabinetmaker (1957), he attended Denmark’s Design School, graduating in 1960. He then worked for Molibia and Hans J. Wegner before opening his own studio in 1963. He taught at Denmark’s Design School (1973–78) and was lector at the Royal Danish Academy’s Furniture School (1978–85). Bernt’s furniture designs were mainly in light wood such as ash and beech. Some of his pieces have been used in theaters and concert halls in towns throughout Denmark. Petersen was recognized for his simple style which is suitable for industrial production. He died on 6 March 2017 at the age of 79.',
+    ],
     works: [
       {
         productId: '1',
@@ -276,7 +290,13 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/bodil_kjær/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Through her vast travels, Danish professor and architect Bodil Kjær has gained deep insight into the relationship between design and architecture and contributed significantly to the spread of Danish Modern design principles – this was not, however, the main purpose of her travels. Kjær wanted to explore methods and materials that could be used to realize her ideas for functional furniture systems and work environments.',
+      'Kjær was born in 1932 and grew up on her family’s ancestral farm near Horsens, Denmark, where she learned to appreciate quality and aesthetics.',
+      'As a furniture designer, Kjær views furniture construction from a purely technical perspective, interplayed with modern architecture and created for people. She always considers context and has collaborated with different professions in her desire to optimize physical settings.',
+      'Her furniture systems support creative people in their work processes, and her designs include indoor and outdoor furniture, light fixtures, a service trolley and vases, all characterized by lightness and a functionalist expression.',
+      'Kjær’s reputation led to speaking invitations and teaching posts at architecture schools including Harvard University, the Pratt Institute and the Royal Academy of Architecture in Copenhagen.',
+    ],
     works: [
       {
         productId: '1',
@@ -322,7 +342,15 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/børge_mogensen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Børge Mogensen’s creative process produced long-lasting pieces with humans at the center. He became a highly influential post-war designer and a leading representative of Danish Modern.',
+      'Mogensen’s democratic design included simple and functional wooden furniture for both private and public spaces, with calm aesthetics and strong construction from quality materials. He believed in visual clarity and minimal decoration or experimentation, as seen in his classic Hunting Table and Deck Chair Set.',
+      'As a student at the Royal Danish Academy of Fine Arts, Mogensen was inspired by Kaare Klint’s use of human proportions with visual calm and functionalism. Mogensen, however, also placed emphasis on informal interior décor and the use of modern production facilities.',
+      'Mogensen completed his cabinetmaker training in 1934, followed by studies in furniture design. During this period he worked in the studios of Klint and Mogens Koch until he was hired as chief designer for the Danish furniture cooperative FDB in 1942, where he pioneered democratic design.',
+      'He began his own design studio in 1950, making modern, useful furniture produced from local, Nordic materials. His inspiration, however came from many cultures and styles, including international modernism, ethnic arts, Japanese carvings, and historic works.',
+      'Mogensen also taught furniture design and participated in exhibitions and competitions, such as the 1948 International Competition for Low- Cost Furniture at the Museum of Modern Art in New York, which he entered together with his friend Hans J. Wegner.',
+      'He was awarded the Eckersberg Medal in 1950 and won the Danish Furniture Prize in 1971. In 1972 he was awarded the C.F. Hansen Medal and appointed Honorary Royal Designer for Industry at the Royal Society of Arts in London.',
+    ],
     works: [
       {
         productId: '1',
@@ -446,7 +474,12 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/edvard_kindt_larsen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Edvard Kindt-Larsen was a Danish architect and furniture designer who worked closely together with his wife Tove Kindt-Larsen (1906– 1994). From the 1930s to the 1960s, the couple were among Denmark’s predominant designers, active the areas of architecture, furniture design, silverware and textiles.',
+      'Much of Kindt-Larsen’s success is due to collaboration with his wife Tove whom he married in 1937. Both had studied under Kaare Klint at the Royal Danish Academy of Fine Arts in the late 1920s. Working as a team, they exhibited a high sense of quality and appreciation of current trends.',
+      'They specialized in furniture design, presenting their work at the annual exhibitions of the Cabinetmakers Guild, organised by Edvard from 1943 to 1966. Their pieces for factory production were rather simple in design but they also designed more elaborate individual pieces. Kindt-Larsen was fascinated by the idea of contrasts, as can be seen in his furniture where he often combined glossy painted surfaces with untreated wood or simply used several different kinds of wood for a given item.',
+      'The couple also designed home textiles for Gabriel in Fredericia and silverware for A. Michelsen. A silver bracelet designed in 1952 was relaunched by Georg Jensen as a watch in 1993. Kindt-Larsen also worked as an architect. Of particular merit is the house he designed for himself in Klampenborg (1949). He was awarded the Eckersberg Medal in 1949.',
+    ],
     works: [
       {
         productId: '1',
@@ -492,7 +525,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/ejner_larsen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Son of cabinetmaker Otto Larsen, Ejner Larsen was born in Copenhagen on 30 March 1917. After training as a cabinetmaker, he learnt furniture design at the Design School in Copenhagen, qualifying in 1940. Thereafter he worked with furniture designers Mogens Koch, Peter Koch and Palle Suenson. From 1942, he designed his own models which he exhibited at the annual Cabinetmakers Guild’s exhibitions in Copenhagen.',
+      'While studying under Kaare Klint at the Royal Danish Academy of Fine Arts, he met Aksel Bender Madsen who became his partner. In 1947, they established a design studio together. The same year, they presented works made by cabinetmaker Willy Beck at the Cabinetmakers Guild’s exhibition in Copenhagen where they continued to participate year after year. In addition to sculptural chair designs, they also designed living rooms, bedrooms, shelving, dining tables, and office furniture. Their most notable work is the Metropolitan Chair, in bent plywood, which was exhibited in 1949 and manufactured by Fritz Hansen from 1952. All their works have a clear, timeless, simple style which continues to please today.',
+    ],
     works: [
       {
         productId: '1',
@@ -538,7 +574,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/erik_ole_jørgensen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Erik Ole Jørgensen had an instinct for tactility in textiles as well as in his furniture design. Originally, Erik Ole Jørgensen was educated as a furniture upholsterer, but upgraded his skills by educating himself as an architect too.',
+      'His talent for composing patterns and textiles has ensured that his designs have achieved the status of classics. They are as relevant today as when first designed.',
+      'With a focus on the entire process from the first drawings to the completed product, Erik Ole Jørgensen designed furniture with simple functional elegance.',
+    ],
     works: [
       {
         productId: '1',
@@ -584,7 +624,12 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/finn_juhl/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Finn Juhl was born on 30 January 1912 to an authoritarian father who was a textile wholesaler representing several English, Scottish and Swiss textile manufacturers in Denmark, and a mother who died shortly after he was born. From an early age he wanted to become an art historian, already as a teenager spending much time at the National Gallery and in spite of his young age receiving permission to borrow books at the library of the Ny Carlsberg Glyptotek, but his father disapproved his aspirations which he considered flimsy and convinced him instead to pursue a career in architecture. He was admitted to the Architecture School at the Royal Danish Academy of Fine Arts where from 1930 to 1934 he studied under Kay Fisker, a leading architect of his day and noted lecturer.',
+      'After graduating, Juhl worked for ten years at Vilhelm Lauritzen’s architectural firm, where he had also apprenticed as a student. In close collaboration with Viggo Boesen, Lauritzen’s closest, Juhl was responsible for much of the interior design of the national Danish broadcaster Danmarks Radio’s Radio Building, one of the firm’s most high-profile assignments during those years. In 1943 he received the C.F. Hansen prize for young architects.',
+      'In 1945 he left Vilhelm Lauritzen’s company and set up his own design practice, in Nyhavn in Copenhagen, specializing in interior and furniture design. However, his work in furniture design began earlier than that.',
+      'Juhl made his debut in 1937 when he commenced a collaboration with cabinetmaker Niels Vodder which would continue until 1959 and exhibited at the Cabinetmakers’ Guild Exhibitions, the 11th of its kind. Therefore, his early chairs were originally produced in small numbers, eighty at most, because the Guild-shows emphasized the work of the artisan over the burgeoning industry of mass production. However, they were almost all reissued later in his career.',
+    ],
     works: [
       {
         productId: '1',
@@ -708,7 +753,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/frits_henningsen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'In 1911, at age 22, Henningsen completed his cabinetmaker apprenticeship with one of the most recognized cabinetmakers of his day, I.P. Mørck. He then traveled around Europe to gather experience and inspiration, working in Germany, France and Great Britain before returning to Copenhagen in 1915. He opened his own furniture shop, drawing on customer input to better understand demand and improve production processes.',
+      'As a member of the Copenhagen Cabinetmakers Guild, Henningsen became a major driver of the furniture exhibitions of the period, gaining recognition for his perfectionist style and vibrant personality. He gave new expression to traditional designs and drew inspiration from the French Empire, rococo, and British 17th-century furniture.',
+      'Henningsen was greatly influenced by Kaare Klint, one of his teachers at technical college. The competition that arose between them led to a constant renewal and reinterpretation of furniture craftsmanship on both sides. For Henningsen, it was the furniture item – not its creator – that deserved center stage. This was one of the main reasons his designs never achieved the same popularity as those of some of his contemporaries.',
+    ],
     works: [
       {
         productId: '1',
@@ -754,7 +803,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/grete_jalk/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Grete Jalk was bold and experimental with new and innovative ways of using materials and forms. Her honesty and genuine interest in quality and experimental design has made her a Danish design icon. She designed several chairs that used new production methods, and she led the way for a new era of Danish design.',
+      'Grete Jalk (1920–2006) was a Danish designer who made her mark on the design scene in the 1950s and 60s. She pursued an impressive list of academic qualifications, starting with the law and philosophy studies in which she chose to abandon halfway through.',
+      'Instead, she commenced her design career in 1939 at the Drawing and Applied school for Women, followed by an apprenticeship as a cabinetmaker where she graduated in 1946. Her studies included instructions from Kaare Klint and supervision from Karen Margrethe Conradsen. Jalk taught design from 1950 to 1960, and opened her own design studio in 1954.',
+    ],
     works: [
       {
         productId: '1',
@@ -800,7 +853,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/hans_bølling/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Hans Bølling is a Danish designer who became famous for his mid- century modern themed Danish wooden toy figurines. During the course of his lifetime, Danish architect/designer Hans Bølling (Hans Bølling) enjoyed the connection between design and fun like many of his Danish contemporaries including Kay Bojesen. Born in 1931 in a small town of Braband in Denmark, Hans Bølling attended an Art- and Handcraft School originally to become an advertising designer, however some years later he followed his passion for architecture and graduated as an architect from the Royal Danish Art Academy.',
+      'Hans Bølling designed a plethora of art works, ranging from wooden figurines, wooden animals and furniture to villas, living complexes and town halls. Oscar the Dog and his Duck came to life in the 1950s during Hans Bølling’s younger years, following the architect’s interest in nature and animals. Here he decided to create small figures of animal figurines for his loved ones. Later, after winning an award he received a carpentry machine, which afforded him the opportunity to carve his beloved figures into wood. It is at this point during the Danish spring that the Mermaid, Dog and the Duck, and later its offspring - the Hans Bølling Duck and Duckling, were born.',
+    ],
     works: [
       {
         productId: '1',
@@ -846,7 +902,9 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/hans_olsen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Although Olsen was a student of Kaare Klint at the Royal Danish Academy’s Furniture School from 1941 to 1943, he belongs to a group of Danish furniture designers who chose to experiment with both form and materials. In 1953, he set up his own studio where he designed and produced a series of exciting pieces in a distinctive style, exhibiting them at the annual fairs of the Cabinetmakers Guild in Copenhagen. One of his most notable designs is the Bikini Chair (1968) which like other chairs from his studio was in bent laminated wood. Though he was not one of the mainstream Danish modern school, he designed a range of items for furniture manufacturers including Bramin Møbler, Juul Kristensen, C.S. Møbler and Frem Røjle.',
+    ],
     works: [
       {
         productId: '1',
@@ -1168,7 +1226,9 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/helge_jensen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Helge Vestergaard Jensen was a Danish furniture designer whose work is characterized by its minimized constructions in order to obtain simple and elegant results. Vestergaard Jensen is most famous for his 1955 daybed design, which was made in an limited edition likewise his other furniture designs. Eventhough Vestergaard Jensen is not particular well known among the public, his furniture designs are highly demanded because of the limited numbers and his sense of craftsmanship, detail and his uncom-promising approach to his design, which was never massproduced. Vestergaard Jensen collaborated with the skilled cabinetmaker Peder Pedersen and together they were regular exhibitors at the Cabinet-makers’ Guild Exhibitions where always set new standards for what one might expect of a piece of furniture.',
+    ],
     works: [
       {
         productId: '1',
@@ -1214,7 +1274,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/ib_kofod_larsen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Furniture designer Ib Kofod-Larsen was born Denmark in 1921 and studied at the Danish Royal Academy in Copenhagen. In 1948, he won the Holmegaard glass competition as well as an annual award from the Danish Cabinetmakers Guild. The latter drew the attention of Danish furniture manufacturer Faarup Møbelfabrik, and Kofod-Larsen went on to create some of his most beautiful works for the company, including his rosewood Model 66 sideboard, during the 1950s. He also designed furniture for several other leading midcentury manufacturers, both at home and abroad, including High Wycombe, Christensen & Larsen, Carlo Gahrn, Bovenkamp, Petersens, and Fredericia Furniture.',
+      'Kofod-Larsen passed away in 2003. Today, the designer’s pieces have become more frequently collected, in large part due to Kofod-Larsen’s talent for honoring the innate qualities of his chosen materials. A visit to Denmark in 1958; as well as the airy and modern Penguin chair (1953). The latter (sometimes referred to as the Shell) features a curved back that embraces the sitter and was originally produced by Petersens in Denmark.',
+      'Kofod-Larsen passed away in 2003. Today, the designer’s pieces have become more frequently collected, in large part due to Kofod-Larsen’s talent for honoring the innate qualities of his chosen materials.',
+    ],
     works: [
       {
         productId: '1',
@@ -1260,7 +1324,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/jacob_kjær/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Kjær received training as a cabinetmaker in the workshop of his father who was also a furniture maker. After completing his training in Berlin and Paris, he exhibited works at the Barcelona World Exhibition in 1929. Characterized by simplicity, his designs drew on the finest materials which, unusually for his day, he crafted himself. Inspired by classical English Style, his clean, graceful designs are modern in interpretation. He did much to enhance the reputation of the Danish furniture industry as president of the Cabinetmakers Guild from 1952 to 1957 and of the Arts and Crafts Committee for Exports from 1944 to 1957.',
+      'One of his most notable works is the FN Chair designed for use at the United Nations Building in New York City. Kjær first made the chair in his own studio while production was initially handled by Christensen & Larsen. Today the chair is produced by Kitani in Japan who manufacture several of Kjær’s designs.',
+    ],
     works: [
       {
         productId: '1',
@@ -1306,7 +1373,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/jens_quistgaard/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Jens Harald Quistgaard was a Danish sculptor and designer, known principally for his work for the American company Dansk Designs, where he was chief designer from 1954 and for the following three decades. Though a sculptor and grounded in traditional handicrafts, he quickly established a career as an industrial designer.',
+      'From the mid-1950s his tableware and kitchenware designs became synonymous with Scandinavian modern and found their way into millions of homes in the USA, Europe and Japan. With his international orientation and success he was groundbreaking, and he had great significance for the place which Danish design acquired in the minds of many Americans. In 1958 he received the Neiman Marcus Award and during the following years he was represented at major museums in Europe and the USA. Many of Jens Quistgaards works are still produced today.',
+    ],
     works: [
       {
         productId: '1',
@@ -1352,7 +1422,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/jens_risom/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Risom was born in Copenhagen, Denmark, on 8 May 1916. His father was a prominent architect, Sven Risom, a member of the school of Nordic Classicism. Risom was trained as a designer at the Copenhagen School of Industrial Arts and Design (Kunsthåndværkerskolen), where he studied under Ole Wanscher and Kaare Klint. He was classmates with Hans Wegner and Børge Mogensen.',
+      'Risom spent two years at Niels Brock Copenhagen Business College, before beginning work as a furniture developer and interior designer with the architectural firm of Ernst Kuhn. He later relocated to Stockholm, taking a job with a small architectural firm. From there he joined the design department of Nordiska Kompaniet where he was introduced to Alvar Aalto and Bruno Mathsson.',
+      'In 1939, Risom traveled to New York City to study American design. He found it difficult to find work as a furniture designer in New York, however, and was forced to accept a number of textile designs that ultimately secured him freelance work with designer Dan Cooper. This led to his work being included in the Collier’s “House of Ideas” designed by Edward Durell Stone and constructed in front of Rockefeller Center during the 1939 New York World’s Fair.',
+    ],
     works: [
       {
         productId: '1',
@@ -1398,7 +1472,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/jørgen_gammelgaard/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Gammelgaard was trained as a cabinetmaker at the Copenhagen School of Arts and Crafts and served an apprenticeship (1957) at C. B. Hansen’s workshop in Copenhagen. He then studied under Grete Jalk and also benefitted from periods . He was a visiting student of furniture design at the Royal Academy (1962–1964) working under Poul Kjærholm and Ole Wanscher.',
+      'Gammelgaard worked as a cabinetmaker with A. J. Iversen (1957–1959) and, after studying at the Academy, in Arne Jacobsen’s studio (1968– 1969). While working with Mogens Koch, Steen Eiler Rasmussen and Jørgen Bo, he undertook consultancy work for the UN in Somoa, where he designed his famous Tip-Top lampshade, followed later by work in Ceylon and the Sudan. In 1973, he established his own business. In 1987, when he was only 49, he was appointed professor at the Royal Academy’s Department of Furniture and Spatial Art.',
+      'His notable designs range from silverware for Georg Jensen to fixtures for the Copenhangen University’s Life Sciences department and for Rødovre Library as well as the Tip-Top and VIP lamp series. His simple but refined furniture, mostly in natural materials and stainless steel, includes a folding stool for Design Forum, a crest rail chair and steel tube chair for Collection Schiang and the EJ20 sofa for Erik Jørgensen. Both his Crestrail chairs, with their semicircular back, and the Skagen Chair, developed with Børge Schiang in the early 1980s are still in production.',
+    ],
     works: [
       {
         productId: '1',
@@ -1444,7 +1522,12 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/jørgen_kastholm/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Born in Roskilde, Kastholm first trained as a smith but soon turned to furniture design. He attended the School for Interior Design in Copenhagen where he studied under Finn Juhl. At the beginning of the 1960s, working in Lebanon, he was inspired to design the Scimitar Chair. He also furnished the SAS office there.',
+      'It was while studying at the Design School that Kastholm met cabinetmaker Preben Fabricius who became his partner for a number of years. They had a common approach to furniture design, never wanting to compromise on quality. Speaking of their partnership, Kastholm commented: “We had the same basic approach, we both wanted to minimize. I had been to the United States and seen furniture by Eames and Mies van der Rohe and it inspired us. The simplest lasts longest. At school we had learnt that timelessness was an ideal.',
+      'The pieces of furniture they produced during their seven-year period of cooperation from 1961 to 1968 were so distinctive that many are still produced today as classics. As a result of disagreements, the pair decided to terminate their cooperation in 1968.',
+      'Kastholm was later appointed professor at Bergische Universität in Wuppertal near Düsseldorf where he taught design from 1975 to 1996. He also designed furniture at his office in Germany as well as in his house in the mountains on the island of Majorca. He returned to Denmark shortly before he died in June 2007.',
+    ],
     works: [
       {
         productId: '1',
@@ -1490,7 +1573,12 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/kaare_klint/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Recognized as the father of modern Danish design, Kaare Klint designed icons such as the 1914 Faaborg Chair and the 1933 Safari Chair, as well as the design for the reception room of the Danish Pavilion at the 1929 Barcelona International Exposition.',
+      'As the son of architect Peder Vilhelm Jensen-Klint, Kaare Klint was immersed in architecture from an early age, but made his mark on Danish design history as a furniture designer and educator. In 1924, he helped establish the Department of Furniture Design at the Royal Danish Academy of Fine Arts. As associate professor and later professor, he inspired some of the greatest Danish furniture designers and architects – including Hans J. Wegner, Mogens Koch, Arne Jacobsen and Poul Kjærholm – who would continue shaping the Golden Age of Danish design from the early 1940s. Today, Klint is regarded as a reformer: as one of the first designers to put functionalism and the practical study of architecture and furniture design principles above style, he redefined a period otherwise characterized by style-focused academic teaching.',
+      'Klint had an outstanding sense of proportion and space, and created “human furniture” based on studies of the human body. He studied an object’s uses over its form, and renewed Danish furniture design by refining tradition and developing objects perfectly in relation to their primary purpose. Klint was also aware of designs’ relationship to its environment, insisting his pieces never dominate a space, but unite form and function for a greater whole.',
+      'In all his work, he insisted on clear, logical design, clean lines, the best materials, and superb craftsmanship. Klint earned many accolades, including the Eckersberg Medal in 1928 and the C.F. Hansen Medal in 1954. In 1949, he became an Honorary Royal Designer for Industry in London.',
+    ],
     works: [
       {
         productId: '1',
@@ -1614,7 +1702,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/kai_kristiansen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Danish designer Kai Kristiansen was born in 1929. Like many of Denmark’s design greats, he apprenticed in cabinetmaking before enrolling—around 1948—in the prestigious Royal Danish Academy of Fine Arts in Copenhagen under the highly influential designer Kaare Klint. At the age of 26, Kristiansen opened his own studio and began to create furniture in what would soon became known as the Danish modern style. His designs would be produced by well-known Danish manufacturers, such as Feldballes Møbelfabrik, Fornem Møbelkunst, Fritz Hansen, and Magnus Olesen.',
+      'In true Danish modern fashion, Kristiansen favored well-joined teak and rosewood, evident equally in his chairs, desks, sideboards, and wall units. In 1956, he designed his most celebrated work, the No. 42 Chair for Schou Andersen. The organically curved back and pivoted armrests form a chair that is as beautiful as it is comfortable. The No. 42 was well- received by critics and enjoyed continued success as one of the most enduring Danish designs of the 20th century.',
+      'Because they were so difficult to manufacture, many of Kristiansen’s designs eventually went out of production. In 2014, Kristiansen collaborated with Miyazaki Chair Company in Japan to reimagine some of his classics designs, which resulted in the Handy Chair, 4110 Chair, and Paper Knife seating collection.',
+    ],
     works: [
       {
         productId: '1',
@@ -1877,7 +1969,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/kurt_østervig/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Trained as a shipbuilder in Odense on the Danish island of Funen, Østervig’s attachment to wood rather than steel led to his being employed as a furniture designer in E. Knudsen’s Studio, among the largest of the times. In 1947, Østervig established his own studio, from where he worked with several of Scandinavia’s largest furniture manufacturers. Particularly fond of working with oak, often combined with leather, he designed many special sets of furniture for ships, hotels, cinemas and nursing homes. His distinctive designs aroused widespread international interest, resulting in his work being exhibited in New York’s Museum of Modern Art.',
+      'Among his more notable pieces from the 1950s are an elegant but simply styled daybed and a free-standing set of shelves with a bar.',
+    ],
     works: [
       {
         productId: '1',
@@ -1923,7 +2018,14 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/mogens_koch/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Mogens Koch’s designs reveal some of the most elegant and important solutions to the requirements of function, comfort and aesthetics. Koch’s works – which included homes, monuments, building extensions, graphic design, objects for the home and, of course, furniture – stand out as original examples of universal utility.',
+      'From 1925 to 1932, Koch was inspired by the principles of Danish functionalism in a number of design studios – including Kaare Klint’s. Koch’s patient study, analytical mind and creative spirit resulted in functional solutions, showing a clear simplicity of form that respected and built on the work of previous generations. A focus on essential structural components and mathematics also played key roles in Koch’s process. Traditional ornamentation and decoration for its own sake were not part of his ideology – an object’s purpose led the way.',
+      'In order to capture meaning and create mathematical order, Koch developed the modular concept for one of his major design successes: his Bookcase System, with dimensions based on the most common book heights. His Folding Series is similarly renowned for its versatility, detail, and functionality based on everyday needs and the space constraints of modern living.',
+      'The Bookcase System design – initially developed for Koch’s own home – offered a highly flexible, practical storage solution. In 1928, he drew the first sketches for the core square module, offering a minimalist aesthetic and intelligent, varied storage.',
+      'Following Klint’s ideologies, Koch’s Bookcase System has succeeded in bringing everyday home objects into graphic order for over 80 years.',
+      'Koch was an influential professor at the Royal Danish Academy of Fine Arts in Copenhagen from 1950 until 1968. His numerous awards include the Eckersberg Medal in 1938, the C. F. Hansen Medal in 1963, and the ID Prize in 1992.',
+    ],
     works: [
       {
         productId: '1',
@@ -2047,7 +2149,12 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/mogens_lassen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Although Lassen’s primary focus was architecture – having designed villas, high-rise buildings, sports complexes and shop interiors – he also contributed significant furniture and home accessory designs.',
+      'After training as a bricklayer from 1919 to 1923, Lassen attended the Royal Danish Academy of Fine Arts’ School of Architecture. He also trained at a number of drawing offices, including that of Danish architect Tyge Hvass from 1925 to 1934.',
+      'Lassen’s sojourn in Paris from 1927 to 1928 sparked the architect’s interest in Le Corbusier’s ideas about rethinking home interiors, for instance by adding mezzanine floors in high-ceilinged rooms. Applying a similar, experimental approach, Lassen designed homes whose rooms were shaped by both function and the daylight flooding in through the windows, and where outdoor spaces were just as carefully designed as the interiors.',
+      'Like his architecture, Lassen’s furniture designs showcased his interest in diverse materials and his ability to express his ideas through both natural and man-made materials. His simple, functional wooden furniture, like the folding Egyptian Table, have gone on to become furniture classics, while his 1930s works in steel continue to serve as original examples of the innovations of international modernism.',
+    ],
     works: [
       {
         productId: '1',
@@ -2093,7 +2200,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/nanna_ditzel/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'The “Hanging Egg Chair” is a critically acclaimed design that has enjoyed praise worldwide ever since the distinctive sculptural shape was created by Nanna & Jørgen Ditzel in 1959. The Design of the “Hanging Egg Chair” has long since been dubbed timeless, whereas rattan had its golden age in the 1960’s when skilled wicker weavers and architects crafted beautifully sculptured furniture out of the challenging material. The Danish designers Nanna and Jørgen Ditzel exhibited their first furniture designs in Copenhagen.',
+      'Ditzel’s experimental approach to materials resulted in the 3-legged rattan chair, which is designed on the basis of the body. It is one of the first chairs based on the idea of integrating a shell on a frame as one piece.',
+      'After Jørgen Ditzel’s death in 1961, Nanna continued to design, and in 1968 she moved to London where she established the Interspace International Furniture and Design Centre, an institution which developed a high reputation as a centre for experimental design. Nanna Ditzel returned to denmark in 1986 and opened a combined design studio and furniture workshop in Copenhagen.',
+    ],
     works: [
       {
         productId: '1',
@@ -2139,7 +2250,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/ole_wanscher/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Ole Wanscher was integral to the core aesthetic and functionality of modern Danish design. He studied under Kaare Klint at the Royal Danish Academy of Fine Arts and later worked at Klint’s design studio before becoming an independent furniture designer. He helped shape Danish furniture design as a designer and as an educator when he took over Klint’s professorship at the Academy.',
+      'Wanscher’s classic and contemporary designs made him popular. In 1958, the Danish newspaper Politiken wrote: “Owning a Wanscher chair is an adventure every day, and will be so even several hundred years from now, for this is how long it lasts”. Today, his modern classics are still revered for their detail and his deep respect for materials.',
+      'While traveling through Egypt and Europe, Wanscher studied furniture design, finding inspiration in varied visual expressions that he incorporated into his own unique design aesthetic. He viewed furniture design as a branch of architecture and emphasized slim dimensions and resilient forms – a quest exemplified in many of his works, particularly the Colonial Chair and Colonial Sofa.',
+    ],
     works: [
       {
         productId: '1',
@@ -2185,7 +2300,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/orla_mølgaard_nielsen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Orla Mølgaard-Nielsen was a Danish architect and furniture designer. After training at the Aalborg Technical School (1924) and at the Art and Crafts School of the Design Museum in Copenhagen (1928), Mølgaard- Nielsen studied furniture design under Kaare Klint at the Royal Danish Academy of Fine Arts (1931–1934). His work, which from 1944 was carried out mainly in partnership with Peter Hvidt at the Hvidt & Mølgaard studio, can be divided into three groups: furniture and interior decoration, buildings, and consultency on large bridge projects.',
+      'Hvidt & Mølgaard’s pioneering sets of furniture included Portex (1945) and Ax (1950), based on a laminating technique and produced by furniture maker Fritz Hansen. The chairs were specially designed for export, economizing on space and packaging requirements for transportation. Hvidt & Mølgaard increasingly took on architectural assignments (from 1970 together with Hans Kristensen). Projects covered office buildings and factories, including the De Danske Sukkerfabrikker Building in Copenhagen (1958), as well as collective housing projects in Søllerød, Hillerød and Birkerød (1962–1970), all completed in a light, clear and simple style. The firm also acted as consultants on the new Little Belt Bridge (1970) and the Vejle Fjord Bridge (1980), playing an important part in the success of their designs.',
+    ],
     works: [
       {
         productId: '1',
@@ -2231,7 +2349,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/peder_moos/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'The son of a farmer, he attended Askov Højskole, a folk High School, before training as a cabinetmaker in Jutland and later in Copenhagen. From 1926 to 1929, he worked in Paris, Geneva and Lausanne. In 1935, he moved into Bredgade in Copenhagen where he started his own workshop which he maintained for 20 years. He attended evening classes at the Royal Danish Academy of Fine Arts where he studied under Einar Utzon- Franck and Kaare Klint.',
+      'Moos designed a bed that could slide in and out of his window so that he could sleep in the fresh air. He worked in a special way, finding the wood he needed himself and making his furniture before drafting the plans. His pieces, which were made to order, were unique in their elegance. His style is reminiscent of art nouveau but more delicate and refined. Working mainly with wood, he would sand his pieces several times with very fine sandpaper, washing them off each time. This resulted in an especially fine finish. In place of nails and screws, he used dowels and wedges in another kind of wood, creating special effects almost like marquetry. He only created some 30 to 40 pieces, but each one is quite distinctive.',
+    ],
     works: [
       {
         productId: '1',
@@ -2277,7 +2398,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/peter_hvidt/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Hvidt was born in Copenhagen in 1916, the son of L. N. Hvidt, president of the Danish Maritime and Commercial Court. After completing his training at the Design School in Copenhagen, he worked at various design firms before setting up his own studio in 1942. In 1944 he opened the Hvidt & Mølgaard studio which he ran with Orla Mølgaard-Nielsen until 1975. They created a number of pioneering sets of furniture including Portex (1945) and Ax (1950), using a laminated technique for production by Fritz Hansen. The chairs were specially designed for export, economizing on space and packaging requirements for transportation.',
+      'Hvidt & Mølgaard increasingly took on architectural assignments (from 1970 together with Hans Kristensen). Projects covered office buildings and factories, including the De Danske Sukkerfabrikker building in Copenhagen (1958), as well as collective housing projects in Søllerød, Hillerød and Birkerød (1962–1970), all completed in a light, clear and simple style. The firm also acted as consultants on the new Little Belt Bridge (1970) (1970) and the Vejle Fjord Bridge (1980), playing an important part in the success of their designs.',
+      'Hvidt received the Diplome d’Honneur at the Triennale in Milan in 1951 and 1954. His works are represented at the MOMA in New York, the National Gallery in Melbourne and the Danish Museum of Art & Design in Copenhagen.',
+    ],
     works: [
       {
         productId: '1',
@@ -2325,7 +2450,10 @@ const designers: Designer[] = [
     awards: [],
     quote:
       'The technician should never forget that he is an artist, the artist never that he is a technician.',
-    bio: [],
+    bio: [
+      'Poul Henningsen (9 September 1894 - 31 January 1967) was a Danish author, critic, architect, and designer. In Denmark, where he often is referred to simply as PH, he was one of the leading figures of the cultural life of Denmark between the World Wars.',
+      'He is most commonly associated with his design of the PH-lamp series of glare-free, shaded lamps. His lamps used carefully analyzed reflecting and baffling of the light rays from the bulb to achieve illumination that was not harsh and glaring but shed warm, soft light. His light fixtures were manufactured by Danish lighting manufacturer Louis Poulsen, a company with which Henningsen would build a lifelong working relationship. His novel works of Danish modern designs are featured in many museums.',
+    ],
     works: [],
   },
   {
@@ -2345,7 +2473,14 @@ const designers: Designer[] = [
     awards: [],
     quote:
       'Steel’s constructive potential is not the only thing that interests me; the refraction of light on its surface is an important part of my artistic work. I consider steel a material with the same artistic merit as wood and leather.',
-    bio: [],
+    bio: [
+      'Through his work as an architect and teacher, Poul Kjærholm became an international design figure and key representative of modernism. He combined his strict, modern idiom with an uncompromising approach to quality and materials rooted in Danish craftsmanship traditions. Despite his short career as a furniture designer, Kjærholm’s exquisite craftsmanship and clear expression resulted in timeless designs whose influence extended globally and well beyond his own lifetime.',
+      'Kjærholm became known for his modernist steel, leather and glass furniture. After training as a cabinetmaker, he studied furniture design at the Royal Danish Academy of Fine Arts in Copenhagen, graduating in 1952.',
+      'Kjærholm returned as a lecturer in 1955, succeeding Ole Wanscher as professor in 1976. He remained at the Academy until his death in 1980, influencing through his work and teaching both within and outside the Academy.',
+      'Just like Kaare Klint, Kjærholm removed unnecessary ornamentation in favor of clarity and function – the hallmarks in his work as both an educator and a designer. He avoided easy solutions and fads in his search for each material’s own language. Kjærholm’s linear aesthetic and expression were influenced by global pioneers such as Gerrit Rietveld, Mies van der Rohe and Charles and Ray Eames.',
+      'In the post-war years, Kjærholm distanced himself from the rounded, organic shapes of contemporary Danish design. As industrialization took off, Kjærholm felt that Denmark could only industrialize production if its products were technically superior to their traditionally crafted counterparts – he sought new ways to unite tradition and innovation.',
+      'Kjærholm’s furniture is represented in many international museums, including the Museum of Modern Art in New York. His awards include the Lunning Award in 1958, the Eckersberg Medal in 1960, and multiple ID Prizes.',
+    ],
     works: [
       {
         productId: '1',
@@ -2468,7 +2603,11 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/poul_volther/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'First trained as a cabinetmaker, Volther studied furniture design at the Arts and Crafts School in Copenhagen.',
+      'A believer in Functionalism, he avoided short-lived aesthetic trends, concentrating on the simple crafting of quality materials. As a teacher at Denmark’s Design School, he encouraged hundreds of students to aim for high quality craftsmanship. With the support of designer Hans Wegner, he was employed from 1949 by the cooperative FDB, working in their design studio under the leadship of Børge Mogensen.',
+      'Mogensen left FDB in 1959, leaving Volther in charge. He went on to design a series of Windsor chairs, rather simpler in style than Mogensen’s own. He also designed a wide variety of armchairs and sofas which can still be seen in homes throughout Denmark and are still in production.',
+    ],
     works: [
       {
         productId: '1',
@@ -2514,7 +2653,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/preben_fabricius/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Preben Juul Fabricius was a Danish furniture designer who worked together with Jørgen Kastholm. During the 1960s, the pair designed a wide range of pieces for the German Alfred Kill who had a furniture factory in Fellbach near Stuttgart.',
+      'Fabricius was trained as a cabinetmaker by Niels Vodder before attending the School for Interior Design where he studied under Finn Juhl. It was there that he met the blacksmith Jørgen Kastholm. They had a common approach to furniture design, never wanting to compromise on aesthetics. In 1961, the pair set up a design studio in a Gentofte cellar without any firm arrangements with manufacturers. In 1965, they exhibited at the furniture fair in Fredericia where the German furniture manufacturer Alfred Kill noticed their work. Kill had a reputation for high quality but initially Favricius and Kastholm were not keen to design furniture for factory production. Only when Kill offered them DM 2,500 a month each, with no preconditions, did they agree to work for him. They travelled to Stuttgart with their first designs for production in Kill’s factory in nearby Fellbach. Their international breakthrough came at the Cologne Fair in 1966 when they exhibited a whole series of office and home furniture leading to orders from ten large furniture concerns. Their minimalistic designs, both attractive and comfortable, were usually in steel and leather. The Tulip Chair, the Grasshopper Chair and the Scimitar Chair are among their most successful works. Fabricius died in March 1984 when he was only 52.',
+    ],
     works: [
       {
         productId: '1',
@@ -2560,7 +2702,10 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/rigmor_andersen/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'The daughter of journalist Hans Emil Andersen, Rigmor Andersen was born in Aarhus, Jutland. After matriculating from Rysensteen Gymnasium in 1922 and a one-year drawing course at the technical school, she was admitted to the Royal Danish Academy of Fine Arts where she studied under Kaare Klint at his newly founded Furniture School. She was impressed by his analytical teaching method and his interest in functional solutions. Towards the end of her studies, she worked for the designer Poul Henningsen (1927–29), contributing to designs which culminated in his classical PH Lamps.',
+      'From 1929 to 1939, Andersen worked in Klint’s studio, becoming one of his most trusted colleagues. Thanks to her competent, self-assured approach, she was soon an indispensable contributor to many of the studio’s projects. In 1931, she was assigned her first independent task, designing furniture for Kvinderegensen, a women’s student residence on Amager Boulevard in Copenhagen. The building’s architect, Helge Bojsen-Møller, was reluctant to allow a young lady to handle the assignment but Andersen, appreciating the nature of the task, created a series of simple, almost timeless pieces of furniture and carefully developed plans for the different rooms: the assembly hall, the library and 56 bedrooms.',
+    ],
     works: [
       {
         productId: '1',
@@ -2606,7 +2751,12 @@ const designers: Designer[] = [
     awards: [],
     avatarSrc: '/media/archive/verner_panton/avatar.jpg',
     heroSrc: '',
-    bio: [],
+    bio: [
+      'Verner Panton, born in Gamtofte, Denmark, studied at Odense Technical College before enrolling at the Royal Danish Academy of Fine Arts in Copenhagen as an architecture student. He worked from 1950–1952 in the architectural firm of Arne Jacobsen and founded an independent studio for architecture and design in 1955. He first attracted wider attention with the geometric forms of his furniture designs for the firm Plus-linje. In the following years Panton created numerous designs for seating furniture and lighting.',
+      'Verner Panton’s passion for bright colours and geometric patterns manifested itself in an extensive range of textile designs. By fusing the elements of a room – floor, walls, ceiling, furnishings, lighting, textiles and wall panels made of enamel or plastic – into a unified gesamtkunstwerk, Panton’s interior installations have attained legendary status. The most famous examples are the ’Visiona’ ship installations for the Cologne Furniture Fair (1968 and 1970), the Spiegel publishing headquarters in Hamburg (1969) and the Varna restaurant in Aarhus (1970).',
+      'Panton’s collaboration with Vitra began in the early 1960s, when they jointly developed what became his best-known design, the Panton Chair, which was introduced in 1967. This was also the first independently developed product by Vitra.',
+      'Verner Panton died in 1998 in Copenhagen. Vitra’s re-edition of designs by Panton, as well as the retrospective of his work mounted by the Vitra Design Museum in 2000, bear witness to the special relationship between Vitra and Verner Panton.',
+    ],
     works: [
       {
         productId: '1',

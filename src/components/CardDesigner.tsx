@@ -33,7 +33,7 @@ type DesignerRowProps = {
 };
 
 const DesignerRow = ({ name, imgSrc, slug }: DesignerRowProps) => (
-  <StyledListItem>
+  <StyledListItem data-designer={name}>
     <SlidingUnderline to={slug}>{name}</SlidingUnderline>
     <div>
       <img src={imgSrc} alt={name} />

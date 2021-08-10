@@ -38,66 +38,79 @@ interface Props {
 }
 
 export default function SmallDetails({ designer }: Props) {
+  const brands = uniqified(designer.works.map((x) => x.brand).filter((x) => x));
   return (
     <Container>
-      <div>
-        <p>Birthplace</p>
-        <p>{designer.birthPlace}</p>
-      </div>
-      <div>
-        <p>Resting Place</p>
-        <a href="/">{designer.restingPlace}</a>
-      </div>
-      <div>
-        <p>Education</p>
-        <ul>
-          {designer.education.map((x) => (
-            <li key={x}>
-              <a href="/">{x}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <p>Spouse{designer.spouses.length > 1 && 's'}</p>
-        <ul>
-          {designer.spouses.map((x) => (
-            <li key={x.name + x.info}>
-              {x.name} / <span>{x.info}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <p>Children</p>
-        <ul>
-          {designer.children.map((x) => (
-            <li key={x}>{x}</li>
-          ))}
-        </ul>
-      </div>
-      <Awards>
-        <p>Awards</p>
-        <ul>
-          {designer.awards.map((x) => (
-            <li key={x.name + x.date}>
-              {x.name} / <span>{x.date}</span>
-            </li>
-          ))}
-        </ul>
-      </Awards>
-      <div>
-        <p>Associated Brands</p>
-        <ul>
-          {uniqified(designer.works.map((x) => x.brand).filter((x) => x))
-            .sort()
-            .map((b) => (
+      {designer.birthPlace && (
+        <div>
+          <p>Birthplace</p>
+          <p>{designer.birthPlace}</p>
+        </div>
+      )}
+      {designer.restingPlace && (
+        <div>
+          <p>Resting Place</p>
+          <a href="/">{designer.restingPlace}</a>
+        </div>
+      )}
+      {designer.education.length > 0 && (
+        <div>
+          <p>Education</p>
+          <ul>
+            {designer.education.map((x) => (
+              <li key={x}>
+                <a href="/">{x}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {designer.spouses.length > 0 && (
+        <div>
+          <p>Spouse{designer.spouses.length > 1 && 's'}</p>
+          <ul>
+            {designer.spouses.map((x) => (
+              <li key={x.name + x.info}>
+                {x.name} / <span>{x.info}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {designer.children.length > 0 && (
+        <div>
+          <p>Children</p>
+          <ul>
+            {designer.children.map((x) => (
+              <li key={x}>{x}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {designer.awards.length > 0 && (
+        <Awards>
+          <p>Awards</p>
+          <ul>
+            {designer.awards.map((x) => (
+              <li key={x.name + x.date}>
+                {x.name} / <span>{x.date}</span>
+              </li>
+            ))}
+          </ul>
+        </Awards>
+      )}
+      {brands.length > 0 && (
+        <div>
+          <p>Associated Brands</p>
+          <ul>
+            {brands.sort().map((b) => (
               <li key={b}>
                 <a href="/">{b}</a>
               </li>
             ))}
-        </ul>
-      </div>
+          </ul>
+        </div>
+      )}
       <div>
         <p>Specialities</p>
         <ul>

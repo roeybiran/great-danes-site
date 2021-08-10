@@ -6,8 +6,8 @@ import Hero from 'components/Designer/Hero';
 import Main from 'components/Designer/Main';
 
 const Wrapper = styled.div`
-  > *:first-child,
-  > *:nth-child(2) {
+  > .big-quote,
+  > .designer-hero {
     padding-top: 0;
     min-height: 100vh;
     top: 0;
@@ -33,12 +33,29 @@ const DesignerStory = ({ data }: Props) => {
 
   return (
     <Wrapper>
-      <BigQuote duration={STAGGER_DURATION} quote={designer.quote ?? ''} />
-      <Hero
-        id="hero-container"
-        src={designer.heroSrc}
-        alt={designer.firstName + ' ' + designer.lastName}
-      />
+      {designer.quote && (
+        <BigQuote duration={STAGGER_DURATION} quote={designer.quote} />
+      )}
+      {designer.heroSrc ? (
+        <Hero
+          id="hero-container"
+          src={designer.heroSrc || designer.avatarSrc}
+          alt={designer.firstName + ' ' + designer.lastName}
+        />
+      ) : (
+        <div
+          style={{
+            marginTop: 'var(--after-navbar-gap)',
+            marginLeft: 'var(--bleed)',
+            objectFit: 'cover',
+            maxHeight: '128px',
+            maxWidth: '128px',
+            clipPath: 'circle(50% at 50% 50%)',
+          }}
+        >
+          <img src={designer.avatarSrc} alt="" />
+        </div>
+      )}
       <Main designer={designer} />
     </Wrapper>
   );

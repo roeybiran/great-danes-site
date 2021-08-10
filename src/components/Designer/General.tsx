@@ -39,10 +39,24 @@ const Designs = styled.div`
     height: 72px;
     width: 72px;
     object-fit: contain;
-    filter: grayscale();
+
     :hover {
       filter: none;
     }
+  }
+
+  .product-no-info img {
+    filter: grayscale();
+  }
+
+  .product-no-info p {
+    margin-top: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .product-no-info img:hover + p {
+    opacity: 1;
   }
 `;
 
@@ -50,7 +64,9 @@ export default function General({ designer }: Props) {
   return (
     <Container>
       <IntroParagraphAndDesignsArea>
-        <p className="prose">{designer.introductoryParagraph}</p>
+        {designer.introductoryParagraph && (
+          <p className="prose">{designer.introductoryParagraph}</p>
+        )}
         <div>
           <p
             style={{
@@ -61,16 +77,44 @@ export default function General({ designer }: Props) {
             Designs
           </p>
           <Designs>
-            {designer.works.map((work) => (
-              <Link
-                key={work.productId}
-                to={`/archive/${designer.designerId}/${work.productId}`}
-              >
-                <figure>
-                  <img src={work.thumbSrc} alt="" />
-                </figure>
-              </Link>
-            ))}
+            {designer.works.map((work) => {
+              if (work.story.length === 0) {
+                return (
+                  <figure
+                    style={{
+                      position: 'relative',
+                    }}
+                    className="product-no-info"
+                  >
+                    <img src={work.thumbSrc} alt="" />
+                    <p
+                      style={{
+                        pointerEvents: 'none',
+                        padding: '0.5rem',
+
+                        position: 'absolute',
+                        fontSize: '1rem',
+                        backgroundColor: 'var(--danish-red)',
+                        color: 'white',
+                        zIndex: 1,
+                      }}
+                    >
+                      More information coming soon.
+                    </p>
+                  </figure>
+                );
+              }
+              return (
+                <Link
+                  key={work.productId}
+                  to={`/archive/${designer.designerId}/${work.productId}`}
+                >
+                  <figure>
+                    <img src={work.thumbSrc} alt="" />
+                  </figure>
+                </Link>
+              );
+            })}
           </Designs>
         </div>
       </IntroParagraphAndDesignsArea>

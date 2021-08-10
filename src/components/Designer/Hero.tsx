@@ -18,7 +18,7 @@ interface Props {
 
 export default function Hero({ id, src, alt }: Props) {
   return (
-    <figure id={id}>
+    <figure className="designer-hero" id={id}>
       <Img src={src} alt={alt} />
     </figure>
   );

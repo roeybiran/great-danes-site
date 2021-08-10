@@ -58,7 +58,6 @@ export default function Credits() {
             <li>react-dom</li>
             <li>react-router-dom</li>
             <li>react-scripts</li>
-            <li>react-scroll-parallax</li>
             <li>styled-components</li>
             <li>three</li>
           </ul>

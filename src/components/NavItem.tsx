@@ -19,6 +19,7 @@ interface Props {
   path: string;
   children?: React.ReactNode;
 }
+
 const NavItem = ({ title, path, children }: Props) => (
   <SlidingUnderline to={path} as={NavLink}>
     {title.slice(0, -1)}
