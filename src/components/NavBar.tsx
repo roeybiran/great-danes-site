@@ -96,7 +96,20 @@ const NavBar = ({ homeItem, navItems, searchItem }: Props) => {
   return (
     <StyledNav style={{ opacity: location.pathname === '/search' ? 0.2 : 1 }}>
       <HomeItem>
-        <NavItem title={homeItem.title} path={homeItem.path} />
+        <NavItem title={homeItem.title} path={homeItem.path}>
+          <span
+            style={{
+              color: 'white',
+              backgroundColor: 'var(--danish-red)',
+              borderRadius: '4px',
+              marginInlineStart: '0.5rem',
+              paddingInlineStart: '8px',
+              paddingInlineEnd: '8px',
+            }}
+          >
+            BETA
+          </span>
+        </NavItem>
       </HomeItem>
       <PopUp>
         <Hamburger

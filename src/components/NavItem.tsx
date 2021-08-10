@@ -17,11 +17,13 @@ const SlidingUnderline = styled(SL)`
 interface Props {
   title: string;
   path: string;
+  children?: React.ReactNode;
 }
-const NavItem = ({ title, path }: Props) => (
+const NavItem = ({ title, path, children }: Props) => (
   <SlidingUnderline to={path} as={NavLink}>
     {title.slice(0, -1)}
     <span>{title.slice(-1)}</span>
+    {children}
   </SlidingUnderline>
 );
 
