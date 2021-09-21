@@ -4,6 +4,7 @@ import path from 'path';
 import { ARCHIVE_PATH } from './constants';
 import getPublicPath from './util/getPublicPath';
 import prepareForNextImage from './util/prepareForNextImage';
+import readdir from './util/readdir';
 import slugify from './util/slugify';
 
 interface ProductMeta {
@@ -51,19 +52,15 @@ export default async function fetchSingleProduct(
   const model = path.join(productDir, 'model.glb');
 
   const gallery = await Promise.all(
-    fs
-      .readdirSync(path.join(productDir, 'product_gallery'))
-      .filter((f) => !f.startsWith('.'))
-      .map(
-        async (p) =>
-          await prepareForNextImage(path.join(productDir, 'product_gallery', p))
-      )
+    readdir(path.join(productDir, 'product_gallery')).map(
+      async (p) =>
+        await prepareForNextImage(path.join(productDir, 'product_gallery', p))
+    )
   );
 
-  const videos = fs
-    .readdirSync(path.join(productDir, 'product_videos'))
-    .filter((f) => !f.startsWith('.'))
-    .map((v) => getPublicPath(path.join(productDir, 'product_videos', v)));
+  const videos = readdir(path.join(productDir, 'product_videos')).map((v) =>
+    getPublicPath(path.join(productDir, 'product_videos', v))
+  );
 
   return {
     designer: {
