@@ -172,7 +172,7 @@ export default function CraftTopic({
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const topic = params!.topic as string;
   const base = join(process.cwd(), craftDir, topic);
-  const [hero, text] = fs.readdirSync(base);
+  const [hero, text] = readdir(base);
 
   const mastersBase = join(process.cwd(), ARCHIVE_PATH);
   const masters = await Promise.all(

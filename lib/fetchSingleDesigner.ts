@@ -10,9 +10,7 @@ import slugify from './util/slugify';
 
 export default async function fetchSingleDesigner(slug: string) {
   const baseFolder = process.cwd() + ARCHIVE_PATH;
-  const name = fs
-    .readdirSync(baseFolder)
-    .find((name) => slugify(name) === slug);
+  const name = readdir(baseFolder).find((name) => slugify(name) === slug);
 
   if (!name) return;
 

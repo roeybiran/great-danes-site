@@ -22,15 +22,15 @@ export default async function fetchSingleProduct(
   proudctSlug: string
 ) {
   const baseDir = process.cwd() + ARCHIVE_PATH;
-  const designer = fs
-    .readdirSync(baseDir)
-    .find((name) => slugify(name) === designerSlug);
+  const designer = readdir(baseDir).find(
+    (name) => slugify(name) === designerSlug
+  );
 
   if (!designer) return;
 
-  const product = fs
-    .readdirSync(path.join(baseDir, designer, 'works'))
-    .find((f) => slugify(f) === proudctSlug);
+  const product = readdir(path.join(baseDir, designer, 'works')).find(
+    (f) => slugify(f) === proudctSlug
+  );
 
   if (!product) return;
 

@@ -1,5 +1,7 @@
-import { readdirSync } from 'fs';
+import { existsSync, readdirSync } from 'fs';
 
 export default function readdir(path: string) {
-  return readdirSync(path).filter((x) => !x.startsWith('.'));
+  return existsSync(path)
+    ? readdirSync(path).filter((x) => !x.startsWith('.'))
+    : [];
 }

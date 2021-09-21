@@ -6,8 +6,7 @@ import slugify from './util/slugify';
 
 export default function fetchProductsSlugs() {
   return readdir(path.join(process.cwd(), ARCHIVE_PATH)).flatMap((designer) =>
-    fs
-      .readdirSync(path.join(process.cwd(), ARCHIVE_PATH, designer, 'works'))
+    readdir(path.join(process.cwd(), ARCHIVE_PATH, designer, 'works'))
       .filter((product) => {
         const model = path.join(
           process.cwd(),
