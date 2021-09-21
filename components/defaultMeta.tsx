@@ -1,10 +1,10 @@
-import Meta from './meta';
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
   WITH_SITE_TITLE_SUFFIX,
 } from 'lib/constants';
+import Meta from './meta';
 
 export default function DefaultMeta({ pageTitle }: { pageTitle: string }) {
   return (

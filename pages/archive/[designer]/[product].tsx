@@ -2,6 +2,7 @@ import models from '@/components/3d/models';
 import BaseScene from '@/components/3d/scenes';
 import Scene from '@/components/3d/scenes/ProductScene';
 import BackToTop from '@/components/BackToTop';
+import DefaultMeta from '@/components/defaultMeta';
 import Gallery from '@/components/product/Gallery';
 import Summary from '@/components/product/Summary';
 import Videos from '@/components/product/Videos';
@@ -14,7 +15,6 @@ import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import DefaultMeta from '@/components/defaultMeta';
 
 const CanvasContainer = styled.div`
   margin-block-start: calc(-1 * (var(--s3)));

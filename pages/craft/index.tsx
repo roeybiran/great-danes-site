@@ -1,3 +1,4 @@
+import DefaultMeta from '@/components/defaultMeta';
 import useStagger from '@/components/useStagger';
 import {
   Center,
@@ -14,7 +15,6 @@ import Link from 'next/link';
 import { join } from 'path';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import DefaultMeta from '@/components/defaultMeta';
 
 const craftDir = join(CMS_PATH, 'craft');
 

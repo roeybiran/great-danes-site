@@ -1,7 +1,7 @@
+import { Stack } from '@roeybiran/every-layout-styled-components';
 import type fetchSingleProduct from 'lib/fetchSingleProduct';
 import upperCaseFirst from 'lib/util/upperCaseFirst';
 import Link from 'next/link';
-import { Stack } from '@roeybiran/every-layout-styled-components';
 import ExternalLink from '../ExternalLink';
 
 type Props = NonNullable<Fulfilled<ReturnType<typeof fetchSingleProduct>>>;

@@ -1,3 +1,4 @@
+import DefaultMeta from '@/components/defaultMeta';
 import useStagger from '@/components/useStagger';
 import { Center, Grid, Stack } from '@roeybiran/every-layout-styled-components';
 import fs from 'fs';
@@ -18,7 +19,6 @@ import Link from 'next/link';
 import { join } from 'path';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import DefaultMeta from '@/components/defaultMeta';
 
 const craftDir = join(CMS_PATH, 'craft');
 

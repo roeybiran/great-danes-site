@@ -1,4 +1,5 @@
 import BackToTop from '@/components/BackToTop';
+import DefaultMeta from '@/components/defaultMeta';
 import DesignerHeader from '@/components/designer/DesignerHeader';
 import DesignerStory from '@/components/designer/DesignerStory';
 import HeroImage from '@/components/designer/HeroImage';
@@ -12,7 +13,6 @@ import fetchSingleDesigner from 'lib/fetchSingleDesigner';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import DefaultMeta from '@/components/defaultMeta';
 
 const Wrapper = styled.main`
   ._stack > * + * {

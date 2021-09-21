@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { Reel } from '@roeybiran/every-layout-styled-components';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`

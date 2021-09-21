@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components";
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 const fadeIn = keyframes`
   0% {
@@ -35,11 +35,11 @@ const CursorWrapper = styled.div`
 
 export default function Cursor() {
   useEffect(() => {
-    const cursorElement = document.getElementById("cursor");
+    const cursorElement = document.getElementById('cursor');
     let didPlayFadeInAnimation = false;
-    document.addEventListener("mousemove", (event) => {
+    document.addEventListener('mousemove', (event) => {
       if (!didPlayFadeInAnimation) {
-        cursorElement!.style.animationPlayState = "running";
+        cursorElement!.style.animationPlayState = 'running';
         didPlayFadeInAnimation = true;
       }
       const { clientX, clientY } = event;

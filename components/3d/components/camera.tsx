@@ -1,5 +1,5 @@
-import { useControls } from 'leva';
 import { PerspectiveCamera } from '@react-three/drei';
+import { useControls } from 'leva';
 
 interface Props {
   position: Vector;

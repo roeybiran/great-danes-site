@@ -1,10 +1,7 @@
-import styled from 'styled-components';
-import {
-  Center as div,
-  Stack,
-} from '@roeybiran/every-layout-styled-components';
-import Image from 'next/image';
+import { Stack } from '@roeybiran/every-layout-styled-components';
 import type fetchDesignerWorks from 'lib/fetchDesignerWorks';
+import Image from 'next/image';
+import styled from 'styled-components';
 
 const WorkCardWrapper = styled.div`
   .img-container.coming-soon {

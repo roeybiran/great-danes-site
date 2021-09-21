@@ -1,6 +1,6 @@
+import { Stack } from '@roeybiran/every-layout-styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Stack } from '@roeybiran/every-layout-styled-components';
 
 export default function SearchResultsSection({ results, title }: any) {
   return (results ?? []).length > 0 ? (

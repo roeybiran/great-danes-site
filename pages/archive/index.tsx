@@ -1,10 +1,10 @@
+import DefaultMeta from '@/components/defaultMeta';
 import { Center, Grid, Stack } from '@roeybiran/every-layout-styled-components';
 import fetchArchive from 'lib/fetchArchive';
 import ROUTES from 'lib/routes';
 import { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import styled from 'styled-components';
-import DefaultMeta from '@/components/defaultMeta';
 
 const Wrapper = styled.div`
   .grid {

@@ -1,8 +1,8 @@
 import { join } from 'path';
-import prepareForNextImage from './util/prepareForNextImage';
-import slugify from './util/slugify';
 import { ARCHIVE_PATH } from './constants';
+import prepareForNextImage from './util/prepareForNextImage';
 import readdir from './util/readdir';
+import slugify from './util/slugify';
 
 const fetchAllWorks = async () => {
   const base = join(process.cwd(), ARCHIVE_PATH);

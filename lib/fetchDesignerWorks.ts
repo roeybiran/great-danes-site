@@ -1,9 +1,9 @@
 import fs from 'fs';
-import path from 'path';
 import matter from 'gray-matter';
+import path from 'path';
 import prepareForNextImage from './util/prepareForNextImage';
-import slugify from './util/slugify';
 import readdir from './util/readdir';
+import slugify from './util/slugify';
 
 const fetchDesignerWorks = async (slug: string, baseFolder: string) => {
   return await Promise.all(

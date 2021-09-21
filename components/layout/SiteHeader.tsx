@@ -1,9 +1,9 @@
+import Burger from '@/components/Burger';
 import { Center } from '@roeybiran/every-layout-styled-components';
 import ROUTES from 'lib/routes';
 import { useRouter } from 'next/dist/client/router';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Burger from '@/components/Burger';
 
 const Wrapper = styled.div`
   position: fixed;

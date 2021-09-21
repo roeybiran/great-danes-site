@@ -1,4 +1,5 @@
 import BackToTop from '@/components/BackToTop';
+import DefaultMeta from '@/components/defaultMeta';
 import useStagger from '@/components/useStagger';
 import { Center, Grid, Stack } from '@roeybiran/every-layout-styled-components';
 import fetchAllWorks from 'lib/fetchAllWorks';
@@ -7,7 +8,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import styled from 'styled-components';
-import DefaultMeta from '@/components/defaultMeta';
 
 const Wrapper = styled.main`
   .grid {
