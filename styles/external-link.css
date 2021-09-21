@@ -1,0 +1,15 @@
+/* https://codepen.io/heydon/pen/pgBBdR */
+
+[href^='http']::after {
+  content: '(external link)';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  text-indent: 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: url('/external-link.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75% auto;
+}
