@@ -40,29 +40,27 @@ export default function Introduction({
         </BaseScene>
       </CanvasContainer>
       <Wrapper ref={wrapperRef}>
-        <Cover centered="div">
-          <Center gutters="var(--s0)">
-            <Markdown
-              options={{
-                wrapper: function Wrapper(props) {
-                  return <div className="drop-cap" data-stagger {...props} />;
+        <Center gutters="var(--s0)">
+          <Markdown
+            options={{
+              wrapper: function Wrapper(props) {
+                return <div className="drop-cap" data-stagger {...props} />;
+              },
+              overrides: {
+                h1: function Header({ children }: any) {
+                  return (
+                    <header>
+                      <h1 className="txt-l">{children}</h1>
+                    </header>
+                  );
                 },
-                overrides: {
-                  h1: function Header({ children }: any) {
-                    return (
-                      <header>
-                        <h1 className="txt-l">{children}</h1>
-                      </header>
-                    );
-                  },
-                  a: NextLinkOrAnchor,
-                },
-              }}
-            >
-              {data}
-            </Markdown>
-          </Center>
-        </Cover>
+                a: NextLinkOrAnchor,
+              },
+            }}
+          >
+            {data}
+          </Markdown>
+        </Center>
       </Wrapper>
     </>
   );

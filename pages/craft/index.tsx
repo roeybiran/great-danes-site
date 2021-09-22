@@ -19,7 +19,7 @@ import styled from 'styled-components';
 const craftDir = join(CMS_PATH, 'craft');
 
 const Wrapper = styled.div`
-  .video-container {
+  .vid-wrapper {
     overflow: hidden;
     position: fixed;
     top: 0;
@@ -31,13 +31,20 @@ const Wrapper = styled.div`
     z-index: -1;
   }
 
-  .video-container.vid-shown {
+  .vid-wrapper.vid-shown {
     opacity: 1;
   }
 
-  &.vid-shown * {
-    color: white;
+  main * {
     transition: color 0.3s ease 0s;
+  }
+
+  main.vid-shown {
+    h1,
+    p:not(.coming-soon),
+    a {
+      color: white;
+    }
   }
 
   .topic:hover {
@@ -51,9 +58,8 @@ const Wrapper = styled.div`
   }
 
   p {
-    max-width: max-content;
     margin: 0;
-    cursor: pointer;
+    cursor: not-allowed;
     line-height: 1.3;
   }
 
@@ -68,7 +74,6 @@ export default function Page({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [currentVid, setCurrentVid] = useState<string | null>(null);
-  const [vidIsShown, setVidIsShown] = useState(false);
 
   const wrapperRef = useRef(null);
   useStagger(wrapperRef);
@@ -76,23 +81,26 @@ export default function Page({
   return (
     <>
       <DefaultMeta pageTitle="Craft" />
-      <Wrapper
-        ref={wrapperRef}
-        className={`sans ${vidIsShown ? 'vid-shown' : ''}`}
-      >
-        <div className={`video-container ${vidIsShown ? 'vid-shown' : ''}`}>
-          <video src={currentVid ?? ''} muted loop autoPlay />
-        </div>
+      <Wrapper ref={wrapperRef} className="sans">
+        {data.map(({ video, poster }) => (
+          <div
+            key={video}
+            className={`vid-wrapper ${currentVid === video ? 'vid-shown' : ''}`}
+          >
+            <video src={video} poster={poster} muted loop autoPlay />
+          </div>
+        ))}
         <Cover centered="main" minHeight="calc(100vh - var(--s3))">
           <Center
+            className={currentVid ? 'vid-shown' : ''}
             data-stagger
             as="main"
-            className="links-container"
             gutters="var(--s0)"
           >
             <header>
               <h1 className="txt-l">Craft</h1>
             </header>
+
             <Stack as="ul" data-stagger>
               {data.map(({ topic, isReady, video }) => (
                 <li className="txt-m" key={topic}>
@@ -101,10 +109,9 @@ export default function Page({
                       <a
                         onMouseEnter={() => {
                           setCurrentVid(video);
-                          setVidIsShown(true);
                         }}
                         onMouseOut={() => {
-                          setVidIsShown(false);
+                          setCurrentVid(null);
                         }}
                       >
                         {topic}
@@ -115,10 +122,9 @@ export default function Page({
                       <p
                         onMouseEnter={() => {
                           setCurrentVid(video);
-                          setVidIsShown(true);
                         }}
                         onMouseOut={() => {
-                          setVidIsShown(false);
+                          setCurrentVid(null);
                         }}
                       >
                         {topic}
@@ -142,6 +148,7 @@ export const getStaticProps = async () => {
     .map((x) => ({
       topic: upperCaseFirst(x),
       video: getPublicPath(join(craftDir, x, 'vid.mp4')),
+      poster: getPublicPath(join(craftDir, x, 'poster.jpg')),
       isReady: fs.existsSync(join(base, x, 'text.md')),
     }))
     // @ts-ignore
