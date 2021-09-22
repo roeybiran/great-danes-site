@@ -22,7 +22,7 @@ export default function Scene() {
         position={[-1, 1, -1]}
         targetPosition={[0, 0, 0]}
       />
-      <CH25 position={[1.5, 0, 0]} />
+      <CH25 position={[0, 0, -1.5]} />
       <Fog />
       <Floor />
     </>
