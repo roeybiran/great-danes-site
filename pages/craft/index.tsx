@@ -90,53 +90,52 @@ export default function Page({
             <video src={video} poster={poster} muted loop autoPlay />
           </div>
         ))}
-        <Cover centered="main" minHeight="calc(100vh - var(--s3))">
-          <Center
-            className={currentVid ? 'vid-shown' : ''}
-            data-stagger
-            as="main"
-            gutters="var(--s0)"
-          >
-            <header>
-              <h1 className="txt-l">Craft</h1>
-            </header>
+        <Center
+          className={currentVid ? 'vid-shown' : ''}
+          data-stagger
+          as="main"
+          gutters="var(--s0)"
+          max="none"
+        >
+          <header>
+            <h1 className="txt-l">Craft</h1>
+          </header>
 
-            <Stack as="ul" data-stagger>
-              {data.map(({ topic, isReady, video }) => (
-                <li className="txt-m" key={topic}>
-                  {isReady ? (
-                    <Link href={`/craft/${topic.toLowerCase()}`}>
-                      <a
-                        onMouseEnter={() => {
-                          setCurrentVid(video);
-                        }}
-                        onMouseOut={() => {
-                          setCurrentVid(null);
-                        }}
-                      >
-                        {topic}
-                      </a>
-                    </Link>
-                  ) : (
-                    <>
-                      <p
-                        onMouseEnter={() => {
-                          setCurrentVid(video);
-                        }}
-                        onMouseOut={() => {
-                          setCurrentVid(null);
-                        }}
-                      >
-                        {topic}
-                      </p>
-                      <p className="coming-soon serif">Coming Soon</p>
-                    </>
-                  )}
-                </li>
-              ))}
-            </Stack>
-          </Center>
-        </Cover>
+          <Stack as="ul" data-stagger>
+            {data.map(({ topic, isReady, video }) => (
+              <li className="txt-m" key={topic}>
+                {isReady ? (
+                  <Link href={`/craft/${topic.toLowerCase()}`}>
+                    <a
+                      onMouseEnter={() => {
+                        setCurrentVid(video);
+                      }}
+                      onMouseOut={() => {
+                        setCurrentVid(null);
+                      }}
+                    >
+                      {topic}
+                    </a>
+                  </Link>
+                ) : (
+                  <>
+                    <p
+                      onMouseEnter={() => {
+                        setCurrentVid(video);
+                      }}
+                      onMouseOut={() => {
+                        setCurrentVid(null);
+                      }}
+                    >
+                      {topic}
+                    </p>
+                    <p className="coming-soon serif">Coming Soon</p>
+                  </>
+                )}
+              </li>
+            ))}
+          </Stack>
+        </Center>
       </Wrapper>
     </>
   );

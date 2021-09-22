@@ -81,22 +81,24 @@ export default function CraftTopic({
           </div>
           <Center gutters="var(--s0)">
             <Stack space="var(--s2)" data-stagger>
-              <div className="drop-cap">
-                <Markdown
-                  options={{
-                    overrides: {
-                      h1: function H1({ children }) {
-                        return (
-                          <header>
-                            <h1 className="txt-l">{children}</h1>
-                          </header>
-                        );
+              <div>
+                <div /* className="drop-cap" */>
+                  <Markdown
+                    options={{
+                      overrides: {
+                        h1: function H1({ children }) {
+                          return (
+                            <header>
+                              <h1 className="txt-l">{children}</h1>
+                            </header>
+                          );
+                        },
                       },
-                    },
-                  }}
-                >
-                  {text}
-                </Markdown>
+                    }}
+                  >
+                    f {/* {text} */}
+                  </Markdown>
+                </div>
               </div>
               <Stack as="section">
                 <h2 className="txt-m">Masters</h2>
@@ -172,16 +174,34 @@ export default function CraftTopic({
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const topic = params!.topic as string;
   const base = join(process.cwd(), craftDir, topic);
-  const [hero, text] = readdir(base);
 
-  const mastersBase = join(process.cwd(), ARCHIVE_PATH);
-  const masters = await Promise.all(
-    readdir(mastersBase)
+  const title = upperCaseFirst(topic);
+  const hero = await prepareForNextImage(join(base, 'hero.jpg'));
+  const text = fs.readFileSync(join(base, 'text.md'), 'utf-8');
+
+  const designersBase = join(process.cwd(), ARCHIVE_PATH);
+
+  // const woodDesigners = glob
+  //   .sync(join(mastersBase, '**/product_story.md'))
+  //   .filter((_path) =>
+  //     (matter(fs.readFileSync(_path, 'utf-8')).data.materials ?? []).includes(
+  //       topic
+  //     )
+  //   )
+  //   .map((_path) => {
+  //     const splitted = _path.replace(mastersBase, '').split(path.sep);
+  //     console.log(splitted);
+  //     // const [designerName, , productName, ...rest] = splitted;
+  //     // console.log(designerName, productName, productThumb);
+  //   });
+
+  const designers = await Promise.all(
+    readdir(designersBase)
       .map((designer) => {
-        const avatar = join(mastersBase, designer, 'avatar.jpg');
-        const works = readdir(join(mastersBase, designer, 'works'))
+        const avatar = join(designersBase, designer, 'avatar.jpg');
+        const works = readdir(join(designersBase, designer, 'works'))
           .map((work) => {
-            const folder = join(mastersBase, designer, 'works', work);
+            const folder = join(designersBase, designer, 'works', work);
             const { data } = matter(
               fs.readFileSync(join(folder, 'product_story.md'), 'utf-8')
             );
@@ -215,11 +235,11 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
 
   return {
     props: {
-      masters: masters.map(({ designer, avatar }) => ({ designer, avatar })),
-      works: masters.flatMap((x) => x.works),
-      title: upperCaseFirst(topic),
-      text: fs.readFileSync(join(base, text), 'utf-8'),
-      hero: await prepareForNextImage(join(base, hero)),
+      masters: designers.map(({ designer, avatar }) => ({ designer, avatar })),
+      works: designers.flatMap((x) => x.works),
+      title,
+      text,
+      hero,
     },
   };
 };
