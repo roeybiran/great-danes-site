@@ -82,7 +82,7 @@ export default function CraftTopic({
           <Center gutters="var(--s0)">
             <Stack space="var(--s2)" data-stagger>
               <div>
-                <div /* className="drop-cap" */>
+                <div className="drop-cap">
                   <Markdown
                     options={{
                       overrides: {
@@ -96,7 +96,7 @@ export default function CraftTopic({
                       },
                     }}
                   >
-                    f {/* {text} */}
+                    {text}
                   </Markdown>
                 </div>
               </div>
