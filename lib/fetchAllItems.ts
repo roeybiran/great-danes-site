@@ -13,7 +13,7 @@ export default async function fetchAllItems() {
       const designerName = _path.split(path.sep).slice(-1)[0];
       const id = designerName;
       const thumb = await prepareForNextImage(join(_path, 'avatar.jpg'));
-      const slug = path.join('/archive', slugify(designerName));
+      const designerSlug = path.join('/archive', slugify(designerName));
       const searchString = normalized(designerName);
       const type = 'designer';
 
@@ -35,11 +35,7 @@ export default async function fetchAllItems() {
             )
           );
           const materials: string[] = data.materials ?? [];
-          const slug = join(
-            '/archive',
-            slugify(designerName),
-            slugify(_dirname)
-          );
+          const slug = join(designerSlug, slugify(_dirname));
           return {
             name,
             slug,
@@ -54,7 +50,7 @@ export default async function fetchAllItems() {
 
       return {
         name: designerName,
-        slug,
+        slug: designerSlug,
         searchString,
         id,
         thumb,
