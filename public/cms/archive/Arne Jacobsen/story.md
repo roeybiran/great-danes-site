@@ -7,7 +7,7 @@ education: []
 spouses: []
 children: []
 awards: []
-quote: The primary factor is... proportions.
+quote: null
 ---
 
 #

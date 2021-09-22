@@ -1,13 +1,21 @@
 import { Stack } from '@roeybiran/every-layout-styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SearchResult } from 'pages/search';
 
-export default function SearchResultsSection({ results, title }: any) {
-  return (results ?? []).length > 0 ? (
+interface Props {
+  title: string;
+  results: SearchResult[];
+}
+
+export default function SearchResultsSection({ title, results }: Props) {
+  if (results.length === 0) return null;
+
+  return (
     <Stack as="section">
       <h2 className="txt-m">{title}</h2>
       <ul className="grid">
-        {results.map((item: any) => (
+        {results.map((item) => (
           <li key={item.id}>
             <div
               className={`img-container ${
@@ -19,24 +27,21 @@ export default function SearchResultsSection({ results, title }: any) {
                 width={64}
                 height={64}
                 objectFit="contain"
-                alt={item.name}
+                alt={item.label}
                 placeholder="blur"
                 blurDataURL={item.thumb.blurDataUrl}
               />
             </div>
-            <Link href={`/archive/${item.slug}`}>
+            <Link href={item.slug}>
               <a
-                className={`${item.name === 'Unknown Model' ? 'unknown' : ''}`}
+                className={`${item.label === 'Unknown Model' ? 'unknown' : ''}`}
               >
-                {item.name}
+                {item.label}
               </a>
             </Link>
-            {title === 'Products' && (
-              <p className="product-designer">{item.designer}</p>
-            )}
           </li>
         ))}
       </ul>
     </Stack>
-  ) : null;
+  );
 }
