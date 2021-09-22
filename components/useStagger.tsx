@@ -20,7 +20,7 @@ export default function useStagger(
             });
         },
         {
-          threshold: 0.25,
+          threshold: 0.1,
         }
       );
     }
