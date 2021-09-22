@@ -35,7 +35,11 @@ export default async function fetchAllItems() {
             )
           );
           const materials: string[] = data.materials ?? [];
-          const slug = join('/archive', designerName, slugify(_dirname));
+          const slug = join(
+            '/archive',
+            slugify(designerName),
+            slugify(_dirname)
+          );
           return {
             name,
             slug,
