@@ -8,7 +8,7 @@ export default function SearchResultsSection({ results, title }: any) {
       <h2 className="txt-m">{title}</h2>
       <ul className="grid">
         {results.map((item: any) => (
-          <li key={item.name}>
+          <li key={item.id}>
             <div
               className={`img-container ${
                 title === 'Designers' ? 'avatar' : ''

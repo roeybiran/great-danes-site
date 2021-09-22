@@ -27,7 +27,7 @@ const Wrapper = styled.main`
     gap: var(--s2);
   }
 
-  .no-results {
+  .message {
     color: var(--danish-red);
   }
 
@@ -38,19 +38,36 @@ const Wrapper = styled.main`
 
 export default function Search() {
   const [query, setQuery] = useState('');
-  const debouncedQuery = useDebounce(query, 500);
   const [results, setResults] = useState<any>({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  const debouncedQuery = useDebounce(query, 500);
+
+  const noResults =
+    (results.designers ?? []).concat(results.products ?? []).length === 0;
+  const noQuery = debouncedQuery.length === 0;
+
+  let message = null;
+  if (noResults && !noQuery && !isLoading) {
+    message = 'No results. Try a different search term.';
+  } else if (noResults && noQuery) {
+    message = 'Search for designers, products...';
+  } else if (isLoading) {
+    message = 'Loading';
+  }
 
   useEffect(() => {
     if (debouncedQuery.length === 0) {
       setResults([]);
       return;
     }
+    setIsLoading(true);
     const fetcher = async () => {
       const res = await fetch(`/api/search?q=${debouncedQuery}`).then((res) =>
         res.json()
       );
       setResults(res);
+      setIsLoading(false);
     };
     fetcher();
   }, [debouncedQuery]);
@@ -75,18 +92,8 @@ export default function Search() {
                 }}
               />
             </form>
-            <Stack aria-live="polite">
-              {(results.designers ?? []).length === 0 &&
-                (results.products ?? []).length === 0 &&
-                (debouncedQuery.length > 0 ? (
-                  <p className="no-results">
-                    No results. Try a different search term.
-                  </p>
-                ) : (
-                  <p className="no-results">
-                    Search for designers, products...
-                  </p>
-                ))}
+            <Stack aria-live="polite" aria-busy={isLoading}>
+              {message && <p className="message">{message}</p>}
               <SearchResultsSection
                 results={results?.designers}
                 title="Designers"

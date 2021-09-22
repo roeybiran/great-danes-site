@@ -27,6 +27,7 @@ export default async function handler(
     .map((des) => ({
       name: des.name,
       thumb: des.avatar,
+      id: des.id,
       slug: slugify(des.name),
     }));
 
@@ -36,6 +37,7 @@ export default async function handler(
     .map((work) => ({
       name: work.name,
       thumb: work.thumb,
+      id: work.id,
       slug: slugify(work.designer),
       designer: work.designer,
     }));
@@ -49,6 +51,10 @@ const getAllItems = async () => {
     readdir(base)
       .map((designer) => {
         const avatar = join(base, designer, 'avatar.jpg');
+        const name = designer;
+        const id = designer;
+        const searchName = normalized(designer);
+
         const works = readdir(join(base, designer, 'works')).map((work) => {
           const folder = join(base, designer, 'works', work);
           const { data } = matter(
@@ -57,17 +63,21 @@ const getAllItems = async () => {
           const materials = (data.materials as string[]) ?? [];
           const thumb = join(folder, 'thumb.png');
           const name = work.startsWith('unknown') ? 'Unknown Model' : work;
+          const searchName = normalized(name + designer + materials.join(''));
+          const id = designer + work;
           return {
+            id,
             name,
-            searchName: normalized(name + designer + materials.join('')),
+            searchName,
             thumb,
             materials,
             designer,
           };
         });
         return {
-          name: designer,
-          searchName: normalized(designer),
+          name,
+          id,
+          searchName,
           avatar,
           works,
         };
