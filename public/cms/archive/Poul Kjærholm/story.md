@@ -7,10 +7,7 @@ education: []
 spouses: []
 children: []
 awards: []
-quote: >-
-  Steel’s constructive potential is not the only thing that interests me; the
-  refraction of light on its surface is an important part of my artistic work. I
-  consider steel a material with the same artistic merit as wood and leather.
+quote: null
 ---
 
 #

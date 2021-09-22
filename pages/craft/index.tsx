@@ -87,14 +87,9 @@ export default function Page({
             key={video}
             className={`vid-wrapper ${currentVid === video ? 'vid-shown' : ''}`}
           >
-            <video
-              src={video}
-              poster={poster}
-              playsInline
-              muted
-              loop
-              autoPlay
-            />
+            <video poster={poster} playsInline muted loop autoPlay>
+              <source src={video} type="video/mp4" media="(hover: hover)" />
+            </video>
           </div>
         ))}
         <Center
