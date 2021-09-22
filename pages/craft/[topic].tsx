@@ -2,11 +2,10 @@ import DefaultMeta from '@/components/defaultMeta';
 import useStagger from '@/components/useStagger';
 import { Center, Grid, Stack } from '@roeybiran/every-layout-styled-components';
 import fs from 'fs';
-import matter from 'gray-matter';
-import { ARCHIVE_PATH, CMS_PATH } from 'lib/constants';
+import { glob } from 'glob';
+import { CMS_PATH } from 'lib/constants';
+import fetchAllItems from 'lib/fetchAllItems';
 import prepareForNextImage from 'lib/util/prepareForNextImage';
-import readdir from 'lib/util/readdir';
-import slugify from 'lib/util/slugify';
 import upperCaseFirst from 'lib/util/upperCaseFirst';
 import Markdown from 'markdown-to-jsx';
 import type {
@@ -16,7 +15,7 @@ import type {
 } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { join } from 'path';
+import path, { join } from 'path';
 import { useRef } from 'react';
 import styled from 'styled-components';
 
@@ -58,8 +57,8 @@ export default function CraftTopic({
   title,
   text,
   hero,
-  works,
-  masters,
+  products,
+  designers,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { blurDataUrl, src } = hero;
   const wrapperRef = useRef(null);
@@ -100,69 +99,8 @@ export default function CraftTopic({
                   </Markdown>
                 </div>
               </div>
-              <Stack as="section">
-                <h2 className="txt-m">Masters</h2>
-                <Grid
-                  minimum="125px"
-                  space="var(--s1)"
-                  as="ul"
-                  className="grid"
-                  data-stagger
-                >
-                  {masters.map(({ designer, avatar }) => (
-                    <li key={designer}>
-                      <div className="img-container">
-                        <Image
-                          className="thumb"
-                          src={avatar.src}
-                          objectFit="contain"
-                          width={64}
-                          height={64}
-                          placeholder="blur"
-                          blurDataURL={avatar.blurDataUrl}
-                          alt={designer}
-                        />
-                      </div>
-                      <Link href={`/archive/${slugify(designer)}`}>
-                        <a>{designer}</a>
-                      </Link>
-                    </li>
-                  ))}
-                </Grid>
-              </Stack>
-              <Stack as="section">
-                <h2 className="txt-m">Masterpieces</h2>
-                <Grid
-                  minimum="125px"
-                  space="var(--s1)"
-                  as="ul"
-                  className="grid"
-                  data-stagger
-                >
-                  {works.map(({ name, thumb, designer }) => (
-                    <li key={name}>
-                      <div className="img-container">
-                        <Image
-                          src={thumb.src}
-                          objectFit="contain"
-                          width={64}
-                          height={64}
-                          placeholder="blur"
-                          blurDataURL={thumb.blurDataUrl}
-                          alt={name}
-                        />
-                      </div>
-                      <Link href={`/archive/${slugify(designer)}#works`}>
-                        <a
-                          className={name === 'Unknown Model' ? 'unknown' : ''}
-                        >
-                          {name}
-                        </a>
-                      </Link>
-                    </li>
-                  ))}
-                </Grid>
-              </Stack>
+              <Section title="Designers" items={designers} />
+              <Section title="Designs" items={products} />
             </Stack>
           </Center>
         </Stack>
@@ -179,64 +117,19 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const hero = await prepareForNextImage(join(base, 'hero.jpg'));
   const text = fs.readFileSync(join(base, 'text.md'), 'utf-8');
 
-  const designersBase = join(process.cwd(), ARCHIVE_PATH);
-
-  // const woodDesigners = glob
-  //   .sync(join(mastersBase, '**/product_story.md'))
-  //   .filter((_path) =>
-  //     (matter(fs.readFileSync(_path, 'utf-8')).data.materials ?? []).includes(
-  //       topic
-  //     )
-  //   )
-  //   .map((_path) => {
-  //     const splitted = _path.replace(mastersBase, '').split(path.sep);
-  //     console.log(splitted);
-  //     // const [designerName, , productName, ...rest] = splitted;
-  //     // console.log(designerName, productName, productThumb);
-  //   });
-
-  const designers = await Promise.all(
-    readdir(designersBase)
-      .map((designer) => {
-        const avatar = join(designersBase, designer, 'avatar.jpg');
-        const works = readdir(join(designersBase, designer, 'works'))
-          .map((work) => {
-            const folder = join(designersBase, designer, 'works', work);
-            const { data } = matter(
-              fs.readFileSync(join(folder, 'product_story.md'), 'utf-8')
-            );
-            const thumb = join(folder, 'thumb.png');
-            return {
-              name: work === 'unknown' ? 'Unknown Model' : work,
-              thumb,
-              isValid: ((data.materials as string[]) ?? []).includes(topic),
-              designer,
-            };
-          })
-          .filter((x) => x.isValid)
-          .slice(0, 1);
-        return { designer, avatar, works };
-      })
-      .filter((x) => x.works.length > 0)
-      .slice(0, 10)
-      .map(async (x) => {
-        return {
-          ...x,
-          works: await Promise.all(
-            x.works.map(async (x) => ({
-              ...x,
-              thumb: await prepareForNextImage(x.thumb),
-            }))
-          ),
-          avatar: await prepareForNextImage(x.avatar),
-        };
-      })
-  );
+  const items = await fetchAllItems();
+  const designers = items
+    .filter((x) => x.products.some((x) => x.materials.includes(topic)))
+    .slice(0, 10);
+  const products = items
+    .flatMap((x) => x.products)
+    .filter((x) => x.materials.includes(topic))
+    .slice(0, 10);
 
   return {
     props: {
-      masters: designers.map(({ designer, avatar }) => ({ designer, avatar })),
-      works: designers.flatMap((x) => x.works),
+      designers,
+      products,
       title,
       text,
       hero,
@@ -245,17 +138,57 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const base = join(process.cwd(), craftDir);
-  const topics = readdir(base)
-    .filter((x) => fs.existsSync(join(base, x, 'text.md')))
-    .map((x) => ({
-      params: {
-        topic: x,
-      },
-    }));
+  const topicNames = glob
+    .sync(join(process.cwd(), craftDir, '**/text.md'))
+    .map((p) => ({ params: { topic: p.split(path.sep).slice(-2)[0] } }));
 
   return {
-    paths: topics,
+    paths: topicNames,
     fallback: false,
   };
 };
+
+function Section({
+  title,
+  items,
+}: {
+  title: string;
+  items: InferGetStaticPropsType<typeof getStaticProps>[
+    | 'designers'
+    | 'products'];
+}) {
+  return (
+    <Stack as="section">
+      <h2 className="txt-m">{title}</h2>
+      <Grid
+        minimum="125px"
+        space="var(--s1)"
+        as="ul"
+        className="grid"
+        data-stagger
+      >
+        {items.map(({ name, slug, id, thumb }) => (
+          <li key={id}>
+            <div className="img-container">
+              <Image
+                className={title !== 'Designs' ? 'thumb' : ''}
+                src={thumb.src}
+                objectFit="contain"
+                width={64}
+                height={64}
+                placeholder="blur"
+                blurDataURL={thumb.blurDataUrl}
+                alt={name}
+              />
+            </div>
+            <Link href={slug + (title === 'Designs' ? '#works' : '')}>
+              <a className={name === 'Unknown Model' ? 'unknown' : ''}>
+                {name}
+              </a>
+            </Link>
+          </li>
+        ))}
+      </Grid>
+    </Stack>
+  );
+}

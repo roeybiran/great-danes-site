@@ -4,6 +4,9 @@ import useDebounce from '@/components/useDebounce';
 import { Center, Stack } from '@roeybiran/every-layout-styled-components';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import type { InferGetStaticPropsType } from 'next';
+import fetchAllItems from 'lib/fetchAllItems';
+import normalized from 'lib/util/normalize';
 
 const Wrapper = styled.main`
   input {
@@ -36,15 +39,23 @@ const Wrapper = styled.main`
   }
 `;
 
-export default function Search() {
+export interface SearchResult {
+  label: string;
+  thumb: CustomImage;
+  id: string;
+  slug: string;
+  type: string;
+}
+
+export default function Search({
+  data,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<any>({});
+  const [results, setResults] = useState<SearchResult[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const debouncedQuery = useDebounce(normalized(query), 500);
 
-  const debouncedQuery = useDebounce(query, 500);
-
-  const noResults =
-    (results.designers ?? []).concat(results.products ?? []).length === 0;
+  const noResults = results.length === 0;
   const noQuery = debouncedQuery.length === 0;
 
   let message = null;
@@ -62,15 +73,18 @@ export default function Search() {
       return;
     }
     setIsLoading(true);
-    const fetcher = async () => {
-      const res = await fetch(`/api/search?q=${debouncedQuery}`).then((res) =>
-        res.json()
-      );
-      setResults(res);
-      setIsLoading(false);
-    };
-    fetcher();
-  }, [debouncedQuery]);
+    const results = [...data, ...data.flatMap((d) => d.products)]
+      .filter((d) => d.searchString.includes(debouncedQuery))
+      .map((item) => ({
+        label: item.name,
+        thumb: item.thumb,
+        id: item.id,
+        slug: item.slug,
+        type: item.type,
+      }));
+    setResults(results);
+    setIsLoading(false);
+  }, [debouncedQuery, data]);
 
   return (
     <>
@@ -95,11 +109,11 @@ export default function Search() {
             <Stack aria-live="polite" aria-busy={isLoading}>
               {message && <p className="message">{message}</p>}
               <SearchResultsSection
-                results={results?.designers}
+                results={results.filter((x) => x.type === 'designer')}
                 title="Designers"
               />
               <SearchResultsSection
-                results={results?.products}
+                results={results.filter((x) => x.type === 'product')}
                 title="Products"
               />
             </Stack>
@@ -109,3 +123,13 @@ export default function Search() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const results = await fetchAllItems();
+
+  return {
+    props: {
+      data: results,
+    },
+  };
+};
