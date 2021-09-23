@@ -1,4 +1,5 @@
 import { Stack } from '@roeybiran/every-layout-styled-components';
+import { UNKNOWN_MODEL } from 'lib/constants';
 import type fetchDesignerWorks from 'lib/fetchDesignerWorks';
 import Image from 'next/image';
 import styled from 'styled-components';
@@ -54,7 +55,7 @@ export default function WorkCard({ work }: Props) {
             <p className="coming-soon uppercased">Coming Soon</p>
           )}
           <p className={name ? 'title uppercased' : 'unknown'}>
-            {name ?? 'Unknown Model'}
+            {name ?? UNKNOWN_MODEL}
           </p>
           {nickname && <p className="nickname serif">the {nickname}</p>}
         </div>

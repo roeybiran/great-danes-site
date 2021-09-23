@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { glob } from 'glob';
 import matter from 'gray-matter';
-import { ARCHIVE_PATH } from 'lib/constants';
+import { ARCHIVE_PATH, UNKNOWN_MODEL } from 'lib/constants';
 import prepareForNextImage from 'lib/util/prepareForNextImage';
 import slugify from 'lib/util/slugify';
 import path, { join } from 'path';
@@ -25,7 +25,7 @@ export default async function fetchAllItems() {
           const _dirname = split.slice(-2)[0];
           const searchString = normalized(_dirname);
           const name = _dirname.startsWith('unknown')
-            ? 'Unknown Model'
+            ? UNKNOWN_MODEL
             : _dirname;
           const id = designerName + _dirname;
           const { data } = matter(

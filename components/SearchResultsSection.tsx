@@ -1,4 +1,5 @@
 import { Stack } from '@roeybiran/every-layout-styled-components';
+import { UNKNOWN_MODEL } from 'lib/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SearchResult } from 'pages/search';
@@ -33,9 +34,7 @@ export default function SearchResultsSection({ title, results }: Props) {
               />
             </div>
             <Link href={item.slug}>
-              <a
-                className={`${item.label === 'Unknown Model' ? 'unknown' : ''}`}
-              >
+              <a className={`${item.label === UNKNOWN_MODEL ? 'unknown' : ''}`}>
                 {item.label}
               </a>
             </Link>
