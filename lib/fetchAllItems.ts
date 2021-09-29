@@ -12,11 +12,7 @@ export default async function fetchAllItems() {
     glob.sync(join(process.cwd(), ARCHIVE_PATH, '*')).map(async (_path) => {
       const designerName = _path.split(path.sep).slice(-1)[0];
       const id = designerName;
-      const avatarPath = join(_path, 'avatar.jpg');
-      const avatar = fs.existsSync(avatarPath)
-        ? avatarPath
-        : join(process.cwd(), 'public', 'placeholder.png');
-      const thumb = await prepareForNextImage(avatar);
+      const thumb = await prepareForNextImage(join(_path, 'avatar.jpg'));
       const designerSlug = path.join('/archive', slugify(designerName));
       const searchString = normalized(designerName);
       const type = 'designer';
