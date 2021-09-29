@@ -8,6 +8,7 @@ import Summary from '@/components/product/Summary';
 import Videos from '@/components/product/Videos';
 import useStagger from '@/components/useStagger';
 import { Center, Stack } from '@roeybiran/every-layout-styled-components';
+import { UNKNOWN_MODEL } from 'lib/constants';
 import fetchProductsSlugs from 'lib/fetchProductsSlugs';
 import fetchSingleProduct from 'lib/fetchSingleProduct';
 import Markdown from 'markdown-to-jsx';
@@ -77,7 +78,7 @@ export default function Product({
 
   return (
     <>
-      <DefaultMeta pageTitle={name ?? 'Unknown Model'} />
+      <DefaultMeta pageTitle={name ?? UNKNOWN_MODEL} />
       <CanvasContainer>
         <div className="inner">
           {models[id] && (
@@ -95,7 +96,7 @@ export default function Product({
       <Wrapper ref={wrapperRef}>
         <Center max="none" gutters="var(--s0)">
           <header id="header" data-stagger>
-            <h1 className="txt-l">{name ?? 'Unknown Model'}</h1>
+            <h1 className="txt-l">{name ?? UNKNOWN_MODEL}</h1>
             {nickname && <p className="nickname">the {nickname}</p>}
           </header>
           <Stack space="var(--s3)">

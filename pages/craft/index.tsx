@@ -1,12 +1,8 @@
 import DefaultMeta from '@/components/defaultMeta';
 import useStagger from '@/components/useStagger';
-import {
-  Center,
-  Cover,
-  Stack,
-} from '@roeybiran/every-layout-styled-components';
+import { Center, Stack } from '@roeybiran/every-layout-styled-components';
 import fs from 'fs';
-import { CMS_PATH } from 'lib/constants';
+import { CMS_PATH, COMING_SOON, READ_MORE } from 'lib/constants';
 import getPublicPath from 'lib/util/getPublicPath';
 import readdir from 'lib/util/readdir';
 import upperCaseFirst from 'lib/util/upperCaseFirst';
@@ -41,7 +37,7 @@ const Wrapper = styled.div`
 
   main.vid-shown {
     h1,
-    p:not(.coming-soon),
+    p:not(.subtitle),
     a {
       color: white;
     }
@@ -59,11 +55,10 @@ const Wrapper = styled.div`
 
   p {
     margin: 0;
-    cursor: not-allowed;
     line-height: 1.3;
   }
 
-  .coming-soon {
+  .subtitle {
     font-size: var(--s0);
     font-style: italic;
     color: var(--danish-red);
@@ -131,9 +126,11 @@ export default function Page({
                     >
                       {topic}
                     </p>
-                    <p className="coming-soon serif">Coming Soon</p>
                   </>
                 )}
+                <p className="subtitle serif">
+                  {isReady ? READ_MORE : COMING_SOON}
+                </p>
               </li>
             ))}
           </Stack>

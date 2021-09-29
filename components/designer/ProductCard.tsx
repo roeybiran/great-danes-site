@@ -1,10 +1,11 @@
 import { Stack } from '@roeybiran/every-layout-styled-components';
+import { READ_MORE, UNKNOWN_MODEL } from 'lib/constants';
 import type fetchDesignerWorks from 'lib/fetchDesignerWorks';
 import Image from 'next/image';
 import styled from 'styled-components';
 
 const WorkCardWrapper = styled.div`
-  .img-container.coming-soon {
+  .img-container.read-more {
     filter: grayscale();
   }
 
@@ -12,7 +13,7 @@ const WorkCardWrapper = styled.div`
     margin: 0;
   }
 
-  p.coming-soon {
+  p.read-more {
     color: var(--danish-red);
     font-size: 0.75em;
     letter-spacing: 2px;
@@ -38,7 +39,7 @@ export default function WorkCard({ work }: Props) {
   return (
     <WorkCardWrapper>
       <Stack>
-        <div className={`img-container${isReady ? '' : ' coming-soon'}`}>
+        <div className={`img-container${isReady ? '' : ' read-more'}`}>
           <Image
             alt={name ?? id}
             src={thumb.src}
@@ -50,13 +51,11 @@ export default function WorkCard({ work }: Props) {
           />
         </div>
         <div>
-          {isReady ? null : (
-            <p className="coming-soon uppercased">Coming Soon</p>
-          )}
           <p className={name ? 'title uppercased' : 'unknown'}>
-            {name ?? 'Unknown Model'}
+            {name ?? UNKNOWN_MODEL}
           </p>
           {nickname && <p className="nickname serif">the {nickname}</p>}
+          {isReady && <p className="read-more uppercased">{READ_MORE}</p>}
         </div>
       </Stack>
     </WorkCardWrapper>

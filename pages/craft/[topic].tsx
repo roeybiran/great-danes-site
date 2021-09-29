@@ -3,7 +3,7 @@ import useStagger from '@/components/useStagger';
 import { Center, Grid, Stack } from '@roeybiran/every-layout-styled-components';
 import fs from 'fs';
 import { glob } from 'glob';
-import { CMS_PATH } from 'lib/constants';
+import { CMS_PATH, UNKNOWN_MODEL } from 'lib/constants';
 import fetchAllItems from 'lib/fetchAllItems';
 import prepareForNextImage from 'lib/util/prepareForNextImage';
 import upperCaseFirst from 'lib/util/upperCaseFirst';
@@ -182,9 +182,7 @@ function Section({
               />
             </div>
             <Link href={slug + (title === 'Designs' ? '#works' : '')}>
-              <a className={name === 'Unknown Model' ? 'unknown' : ''}>
-                {name}
-              </a>
+              <a className={name === UNKNOWN_MODEL ? 'unknown' : ''}>{name}</a>
             </Link>
           </li>
         ))}

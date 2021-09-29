@@ -3,7 +3,7 @@ import Scene from '@/components/3d/scenes/IntroductionScene';
 import DefaultMeta from '@/components/defaultMeta';
 import NextLinkOrAnchor from '@/components/NextLinkOrAnchor';
 import useStagger from '@/components/useStagger';
-import { Center, Cover } from '@roeybiran/every-layout-styled-components';
+import { Center } from '@roeybiran/every-layout-styled-components';
 import { readFileSync } from 'fs';
 import Markdown from 'markdown-to-jsx';
 import { InferGetStaticPropsType } from 'next';
