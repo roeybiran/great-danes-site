@@ -12,10 +12,11 @@ export default function Scene() {
     <>
       <Camera position={[0, 0.5, 2]} />
       <Controls
-        maxPolarAngle={Math.PI / 2}
+        maxPolarAngle={Math.PI / 2.5}
         minPolarAngle={0}
         maxDistance={10}
         minDistance={1}
+        enableZoom={false}
       />
       <HemiLight intensity={0.1} />
       <MainLight

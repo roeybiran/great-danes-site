@@ -6,11 +6,20 @@ import HomeScene from '../components/3d/scenes/HomeScene';
 const CanvasContainer = styled.div`
   height: 100vh;
   width: 100%;
+  /* position: fixed; */
 `;
 
 export default function Home() {
   return (
     <>
+      {/* TODO: find a better solution, like per page layouts? */}
+      <style jsx global>
+        {`
+          div[class^='_app'] {
+            margin-block-end: 0 !important;
+          }
+        `}
+      </style>
       <DefaultMeta pageTitle={'Home'} />
       <header className="sr-only">
         <h1 className="txt-l">Great Danes</h1>

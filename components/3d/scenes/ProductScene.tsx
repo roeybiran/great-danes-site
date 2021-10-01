@@ -12,6 +12,7 @@ export default function Scene({ children }: { children: React.ReactNode }) {
           minDistance={0.5}
           maxDistance={10}
           target={[0, 0.3, 0]}
+          enableZoom={false}
         />
         {children}
       </Stage>

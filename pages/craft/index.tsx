@@ -15,6 +15,11 @@ import styled from 'styled-components';
 const craftDir = join(CMS_PATH, 'craft');
 
 const Wrapper = styled.div`
+  p,
+  a {
+    line-height: 1;
+  }
+
   .vid-wrapper {
     overflow: hidden;
     position: fixed;
@@ -25,6 +30,10 @@ const Wrapper = styled.div`
     transition: opacity 0.3s ease 0s;
     opacity: 0;
     z-index: -1;
+  }
+
+  li {
+    max-width: max-content;
   }
 
   .vid-wrapper.vid-shown {
@@ -51,11 +60,6 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  p {
-    margin: 0;
-    line-height: 1.3;
   }
 
   .subtitle {
@@ -100,38 +104,31 @@ export default function Page({
 
           <Stack as="ul" data-stagger>
             {data.map(({ topic, isReady, video }) => (
-              <li className="txt-m" key={topic}>
+              <Stack
+                key={topic}
+                as="li"
+                space="var(--s-2)"
+                className="txt-m"
+                onMouseEnter={() => {
+                  setCurrentVid(video);
+                }}
+                onMouseOut={() => {
+                  setCurrentVid(null);
+                }}
+              >
                 {isReady ? (
                   <Link href={`/craft/${topic.toLowerCase()}`}>
-                    <a
-                      onMouseEnter={() => {
-                        setCurrentVid(video);
-                      }}
-                      onMouseOut={() => {
-                        setCurrentVid(null);
-                      }}
-                    >
-                      {topic}
-                    </a>
+                    <a>{topic}</a>
                   </Link>
                 ) : (
                   <>
-                    <p
-                      onMouseEnter={() => {
-                        setCurrentVid(video);
-                      }}
-                      onMouseOut={() => {
-                        setCurrentVid(null);
-                      }}
-                    >
-                      {topic}
-                    </p>
+                    <p>{topic}</p>
                   </>
                 )}
                 <p className="subtitle serif">
                   {isReady ? READ_MORE : COMING_SOON}
                 </p>
-              </li>
+              </Stack>
             ))}
           </Stack>
         </Center>
