@@ -1,6 +1,6 @@
 import DefaultMeta from '@/components/defaultMeta';
 import { Center, Grid, Stack } from '@roeybiran/every-layout-styled-components';
-import fetchArchive from 'lib/fetchArchive';
+import fetchAllItems from 'lib/fetchAllItems';
 import ROUTES from 'lib/routes';
 import { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
@@ -66,9 +66,34 @@ export default function Archive({
 }
 
 export async function getStaticProps() {
+  const archive = Object.entries(
+    (await fetchAllItems())
+      .map(({ name, slug }) => {
+        return {
+          indexLetter: name.split(' ').slice(-1)[0][0],
+          slug,
+          name,
+        };
+      })
+      .reduce<{ [k: string]: { name: string; slug: string }[] }>(
+        (acc, current) => {
+          return {
+            ...acc,
+            [current.indexLetter]: [
+              ...(acc[current.indexLetter] ?? []),
+              {
+                name: current.name,
+                slug: current.slug,
+              },
+            ],
+          };
+        },
+        {}
+      )
+  ).sort((a, b) => (a[0] < b[0] ? -1 : 1));
   return {
     props: {
-      designers: fetchArchive(),
+      designers: archive,
     },
   };
 }

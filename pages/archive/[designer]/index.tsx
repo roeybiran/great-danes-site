@@ -8,7 +8,7 @@ import Summary from '@/components/designer/Summary';
 import Works from '@/components/designer/Works';
 import useStagger from '@/components/useStagger';
 import { Center, Stack } from '@roeybiran/every-layout-styled-components';
-import fetchDesignersNamesAndSlugs from 'lib/fetchDesignersNamesAndSlugs';
+import fetchAllItems from 'lib/fetchAllItems';
 import fetchSingleDesigner from 'lib/fetchSingleDesigner';
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { useRef } from 'react';
@@ -75,7 +75,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 
 export async function getStaticPaths() {
   return {
-    paths: fetchDesignersNamesAndSlugs().map(({ slug }) => ({
+    paths: (await fetchAllItems()).map(({ slug }) => ({
       params: { designer: slug },
     })),
     fallback: false,

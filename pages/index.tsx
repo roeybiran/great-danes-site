@@ -6,7 +6,6 @@ import HomeScene from '../components/3d/scenes/HomeScene';
 const CanvasContainer = styled.div`
   height: 100vh;
   width: 100%;
-  /* position: fixed; */
 `;
 
 export default function Home() {
