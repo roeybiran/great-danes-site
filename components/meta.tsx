@@ -1,3 +1,4 @@
+import Head from 'next/head';
 // https://css-tricks.com/essential-meta-tags-social-media/
 
 interface Props {
@@ -18,7 +19,7 @@ export default function Meta({
   imgAlt,
 }: Props) {
   return (
-    <>
+    <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
 
@@ -32,6 +33,6 @@ export default function Meta({
       {/* Non-Essential, But Recommended */}
       {siteName && <meta property="og:site_name" content={siteName} />}
       {imgAlt && <meta name="twitter:image:alt" content={imgAlt} />}
-    </>
+    </Head>
   );
 }

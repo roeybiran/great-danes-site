@@ -1,6 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { ARCHIVE_PATH } from 'lib/constants';
+import { ARCHIVE_PATH, UNKNOWN_MODEL } from 'lib/constants';
 import prepareForNextImage from 'lib/util/prepareForNextImage';
 import readdir from 'lib/util/readdir';
 import slugify from 'lib/util/slugify';
@@ -62,7 +62,7 @@ const getAllItems = async () => {
           );
           const materials = (data.materials as string[]) ?? [];
           const thumb = join(folder, 'thumb.png');
-          const name = work.startsWith('unknown') ? 'Unknown Model' : work;
+          const name = work.startsWith('unknown') ? UNKNOWN_MODEL : work;
           const searchName = normalized(name + designer + materials.join(''));
           const id = designer + work;
           return {

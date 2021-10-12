@@ -22,13 +22,13 @@ export default async function fetchSingleDesigner(slug: string) {
 
   let hero = null;
   if (fs.existsSync(heroPath)) {
-    const heroImgData = await prepareForNextImage(heroPath, name);
-    hero = {
-      ...heroImgData,
-    };
+    hero = await prepareForNextImage(heroPath, name);
   }
 
-  const avatarImgData = await prepareForNextImage(avatarPath, name);
+  let avatar = null;
+  if (fs.existsSync(avatarPath)) {
+    avatar = await prepareForNextImage(avatarPath, name);
+  }
 
   const { data, content } = matter(
     fs.readFileSync(bioPath, 'utf-8').replace(/^#$/gm, '')
@@ -63,9 +63,7 @@ export default async function fetchSingleDesigner(slug: string) {
 
   return {
     name,
-    avatar: {
-      ...avatarImgData,
-    },
+    avatar,
     hero,
     meta: parseDesignerMeta(data),
     mixedContent,
