@@ -15,7 +15,6 @@ import '../styles/sr-only.css';
 
 const Content = styled.div`
   min-height: 100vh;
-
   margin-block-start: var(--s3);
   margin-block-end: var(--s3);
 `;
@@ -28,7 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Content>
         <Component {...pageProps} />
       </Content>
-      <Footer />
     </>
   );
 }
