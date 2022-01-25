@@ -4,7 +4,7 @@ import path from 'path';
 import { ARCHIVE_PATH } from '../constants';
 import getPublicPath from '../util/getPublicPath';
 import prepareForNextImage from '../util/prepareForNextImage';
-import readdir from '../util/readdir';
+import _readdir from '../util/_readdir';
 import slugify from '../util/slugify';
 
 interface ProductMeta {
@@ -22,13 +22,13 @@ export default async function fetchSingleProduct(
 	proudctSlug: string
 ) {
 	const baseDir = process.cwd() + ARCHIVE_PATH;
-	const designer = readdir(baseDir).find(
+	const designer = _readdir(baseDir).find(
 		(name) => slugify(name) === designerSlug
 	);
 
 	if (!designer) return;
 
-	const product = readdir(path.join(baseDir, designer, 'works')).find(
+	const product = _readdir(path.join(baseDir, designer, 'works')).find(
 		(f) => slugify(f) === proudctSlug
 	);
 
@@ -52,13 +52,13 @@ export default async function fetchSingleProduct(
 	const model = path.join(productDir, 'model.glb');
 
 	const gallery = await Promise.all(
-		readdir(path.join(productDir, 'product_gallery')).map(
+		_readdir(path.join(productDir, 'product_gallery')).map(
 			async (p) =>
 				await prepareForNextImage(path.join(productDir, 'product_gallery', p))
 		)
 	);
 
-	const videos = readdir(path.join(productDir, 'product_videos')).map((v) =>
+	const videos = _readdir(path.join(productDir, 'product_videos')).map((v) =>
 		getPublicPath(path.join(productDir, 'product_videos', v))
 	);
 

@@ -1,6 +1,6 @@
 import BackToTop from '../components/BackToTop';
 import DefaultMeta from '../components/DefaultMeta';
-import useStagger from '../components/useStagger';
+import useStagger from '../hooks/useStagger';
 import { Center, Grid, Stack } from '@roeybiran/every-layout-styled-components';
 import fetchAllItems from '../lib/fetchAllItems';
 import { InferGetStaticPropsType } from 'next';
@@ -25,25 +25,17 @@ export default function Gallery(
 						<h1 className="txt-l fade-slide-up">Gallery</h1>
 						<Grid className="grid" data-stagger>
 							{products.map(
-								({
-									designerName,
-									designerSlug,
-									name: workName,
-									slug: workSlug,
-									thumb,
-								}) => (
-									<div key={designerSlug + workSlug}>
+								({ name, slug, designerName, designerSlug, thumb }) => (
+									<div key={slug}>
 										<Link href={`${designerSlug}#works`}>
 											<a>
 												<Image
 													src={thumb.src}
-													// width={thumb.width}
-													// height={thumb.height}
 													width={72}
 													height={72}
 													objectFit="contain"
 													blurDataURL={thumb.blurDataUrl}
-													alt={`${workName}, by ${designerName}`}
+													alt={`${name}, by ${designerName}`}
 													placeholder="blur"
 												/>
 											</a>
@@ -63,8 +55,8 @@ export default function Gallery(
 export async function getStaticProps() {
 	const products = (await fetchAllItems())
 		.map((designer) =>
-			designer.products.map((prdct) => ({
-				...prdct,
+			designer.products.map((product) => ({
+				...product,
 				designerName: designer.name,
 				designerSlug: designer.slug,
 			}))

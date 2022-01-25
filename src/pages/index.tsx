@@ -1,4 +1,4 @@
-import Base from '../components/BaseScene';
+import Base from '../common-3d/BaseScene';
 import DefaultMeta from '../components/DefaultMeta';
 import styled from 'styled-components';
 import HomeScene from '../home-view/HomeScene';

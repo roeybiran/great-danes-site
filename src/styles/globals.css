@@ -1,3 +1,18 @@
+#__next {
+	display: grid;
+	min-block-size: 100vh;
+	grid-template-areas: 'main';
+}
+
+#__next > * {
+	grid-area: main;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
 :root {
 	--gray-800: rgba(31, 41, 55, 1); /* #1f2937 */
 	--danish-red: rgb(200, 4, 44); /* c8042c */
@@ -146,4 +161,9 @@ dt,
 .uppercased {
 	text-transform: uppercase;
 	letter-spacing: 1px;
+}
+
+/* temp */
+h1 {
+	margin-block-start: 4rem;
 }

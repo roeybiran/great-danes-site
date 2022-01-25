@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import styled from 'styled-components';
 import BackToTop from '../components/BackToTop';
 import DefaultMeta from '../components/DefaultMeta';
-import useStagger from '../components/useStagger';
+import useStagger from '../hooks/useStagger';
 import getProps from './getProps';
 import Header from './_internal/Header';
 import HeroImage from './_internal/HeroImage';

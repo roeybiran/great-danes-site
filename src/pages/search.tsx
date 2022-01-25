@@ -1,6 +1,6 @@
 import DefaultMeta from '../components/DefaultMeta';
 import SearchResultsSection from '../search-view/SearchResultsSection';
-import useDebounce from '../components/useDebounce';
+import useDebounce from '../hooks/useDebounce';
 import { Center, Stack } from '@roeybiran/every-layout-styled-components';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -59,8 +59,8 @@ export default function Search({
 		<>
 			<DefaultMeta pageTitle="Search" />
 			<Wrapper className="fade-slide-up sans">
-				<h1 className="sr-only">Search</h1>
 				<Center gutters="var(--s0)">
+					<h1>Search</h1>
 					<Stack>
 						<form onSubmit={(e) => e.preventDefault()}>
 							<label className="sr-only" htmlFor="search-field">

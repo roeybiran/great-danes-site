@@ -1,12 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import { ARCHIVE_PATH } from '../constants';
-import readdir from '../util/readdir';
+import _readdir from '../util/_readdir';
 import slugify from '../util/slugify';
 
 export default function fetchProductsSlugs() {
-	return readdir(path.join(process.cwd(), ARCHIVE_PATH)).flatMap((designer) =>
-		readdir(path.join(process.cwd(), ARCHIVE_PATH, designer, 'works'))
+	return _readdir(path.join(process.cwd(), ARCHIVE_PATH)).flatMap((designer) =>
+		_readdir(path.join(process.cwd(), ARCHIVE_PATH, designer, 'works'))
 			.filter((product) => {
 				const model = path.join(
 					process.cwd(),

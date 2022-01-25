@@ -1,7 +1,7 @@
 import BackToTop from '../components/BackToTop';
 import DefaultMeta from '../components/DefaultMeta';
 import StyledBlockquote from '../components/StyledBlockquote';
-import useStagger from '../components/useStagger';
+import useStagger from '../hooks/useStagger';
 import { Center } from '@roeybiran/every-layout-styled-components';
 import { readFileSync } from 'fs';
 import Markdown from 'markdown-to-jsx';
@@ -62,7 +62,11 @@ export default function Timeline({
 						forceWrapper: true,
 						overrides: {
 							h1: function Header({ children }: any) {
-								return <h1 className="sr-only">{children}</h1>;
+								return (
+									<Center gutters="var(--s0)" max="none">
+										<h1>{children}</h1>
+									</Center>
+								);
 							},
 							h2: function Header({ children }: any) {
 								const [title, date] = children[0].split(',');
@@ -77,7 +81,7 @@ export default function Timeline({
 							},
 							blockquote: function BQ({ children }: any) {
 								return (
-									<Center max="80ch">
+									<Center gutters="var(--s0)" max="60ch">
 										<StyledBlockquote>
 											<p>{children[0].props.children[0]}</p>
 										</StyledBlockquote>

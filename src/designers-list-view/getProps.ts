@@ -1,10 +1,10 @@
 import { basename, join } from 'path';
-import readdir from '../util/readdir';
+import _readdir from '../util/_readdir';
 import slugify from '../util/slugify';
 
-export default async function getProps() {
+export default function getProps() {
 	const basePath = join(process.cwd(), 'public/cms/archive');
-	const names = readdir(basePath).map((f) => {
+	const names = _readdir(basePath).map((f) => {
 		const name = basename(f);
 		const slug = `/designer/${encodeURIComponent(slugify(name))}`;
 		// first letter of family name

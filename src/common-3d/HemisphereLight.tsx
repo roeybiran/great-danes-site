@@ -5,7 +5,7 @@ interface Props {
 	intensity: number;
 }
 
-const HemiLight = (props: Props) => {
+export default function HemisphereLight(props: Props) {
 	const levaProps = useControls('hemisphereLight', {
 		intensity: { value: props.intensity, step: 0.1, min: -1 },
 		skyColor: constants.sceneBgColor,
@@ -18,6 +18,4 @@ const HemiLight = (props: Props) => {
 			intensity={levaProps.intensity}
 		/>
 	);
-};
-
-export default HemiLight;
+}

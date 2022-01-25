@@ -4,12 +4,12 @@ import path from 'path';
 import { ARCHIVE_PATH } from '../constants';
 import parseDesignerMeta from '../util/parseDesignerMeta';
 import prepareForNextImage from '../util/prepareForNextImage';
-import readdir from '../util/readdir';
+import _readdir from '../util/_readdir';
 import slugify from '../util/slugify';
 
 export default async function getProps(designerSlug: string) {
 	const baseFolder = process.cwd() + ARCHIVE_PATH;
-	const name = readdir(baseFolder).find(
+	const name = _readdir(baseFolder).find(
 		(name) => slugify(name) === designerSlug
 	)!;
 
@@ -34,7 +34,7 @@ export default async function getProps(designerSlug: string) {
 	);
 
 	const bioPics = await Promise.all(
-		readdir(bioGallery).map(
+		_readdir(bioGallery).map(
 			async (img) => await prepareForNextImage(path.join(bioGallery, img), name)
 		)
 	);
@@ -73,7 +73,7 @@ export default async function getProps(designerSlug: string) {
 
 const fetchDesignerWorks = async (slug: string, baseFolder: string) => {
 	return await Promise.all(
-		readdir(baseFolder).map(async (productFolder) => {
+		_readdir(baseFolder).map(async (productFolder) => {
 			const name = productFolder;
 			const id = productFolder;
 			const dirname = path.join(baseFolder, productFolder);

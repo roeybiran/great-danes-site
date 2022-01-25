@@ -1,6 +1,6 @@
 import { Stage } from '@react-three/drei';
 import React from 'react';
-import Controls from '../../components/controls';
+import Controls from '../../common-3d/Controls';
 
 export default function Scene({ children }: { children: React.ReactNode }) {
 	return (

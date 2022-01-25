@@ -1,8 +1,8 @@
-import BaseScene from '../components/BaseScene';
+import BaseScene from '../common-3d/BaseScene';
 import Scene from '../introduction-view/IntroductionScene';
 import DefaultMeta from '../components/DefaultMeta';
-import NextLinkOrAnchor from '../components/NextLinkOrAnchor';
-import useStagger from '../components/useStagger';
+import NextLinkOrAnchor from '../introduction-view/NextLinkOrAnchor';
+import useStagger from '../hooks/useStagger';
 import { Center } from '@roeybiran/every-layout-styled-components';
 import { readFileSync } from 'fs';
 import Markdown from 'markdown-to-jsx';

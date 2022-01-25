@@ -1,9 +1,9 @@
-import Camera from '../components/camera';
-import Controls from '../components/controls';
-import Floor from '../components/floor';
-import Fog from '../components/fog';
-import HemiLight from '../components/hemiLight';
-import MainLight from '../components/mainLight';
+import HemisphereLight from '../common-3d/HemisphereLight';
+import Camera from '../common-3d/Camera';
+import Controls from '../common-3d/Controls';
+import Floor from '../common-3d/Floor';
+import Fog from '../common-3d/Fog';
+import MainLight from '../common-3d/MainLight';
 import CH24 from '../product-view/_internal/ModelCH24';
 import Text3D from './ModelHomeText';
 
@@ -18,7 +18,7 @@ export default function Scene() {
 				minDistance={1}
 				enableZoom={false}
 			/>
-			<HemiLight intensity={0.1} />
+			<HemisphereLight intensity={0.1} />
 			<MainLight
 				intensity={1}
 				position={[-1, 1, -1]}

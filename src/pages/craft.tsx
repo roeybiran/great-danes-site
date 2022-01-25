@@ -6,10 +6,10 @@ import { join } from 'path';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import DefaultMeta from '../components/DefaultMeta';
-import useStagger from '../components/useStagger';
+import useStagger from '../hooks/useStagger';
 import { CMS_PATH, COMING_SOON, READ_MORE } from '../constants';
 import getPublicPath from '../util/getPublicPath';
-import readdir from '../util/readdir';
+import _readdir from '../util/_readdir';
 import upperCaseFirst from '../util/upperCaseFirst';
 
 const craftDir = join(CMS_PATH, 'craft');
@@ -139,7 +139,7 @@ const Wrapper = styled.div`
 
 export const getStaticProps = async () => {
 	const base = join(process.cwd(), craftDir);
-	const data = readdir(base)
+	const data = _readdir(base)
 		.map((x) => ({
 			topic: upperCaseFirst(x),
 			video: getPublicPath(join(craftDir, x, 'vid.mp4')),

@@ -1,5 +1,5 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import DesignerView from '../../designer-view';
+import DesignerView from '../../designer-view/View';
 import getPaths from '../../designer-view/getPaths';
 import getProps from '../../designer-view/getProps';
 
@@ -18,12 +18,12 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 }
 
 export async function getStaticPaths() {
-	const paths = (await getPaths()).map((p) => ({
+	const paths = getPaths().map((p) => ({
 		params: { designer: p },
 	}));
 
 	return {
 		paths,
-		fallback: 'blocking',
+		fallback: false,
 	};
 }

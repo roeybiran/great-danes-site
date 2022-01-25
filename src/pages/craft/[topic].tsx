@@ -1,4 +1,4 @@
-import { Center, Grid, Stack } from '@roeybiran/every-layout-styled-components';
+import { Center, Stack } from '@roeybiran/every-layout-styled-components';
 import fs from 'fs';
 import { glob } from 'glob';
 import Markdown from 'markdown-to-jsx';
@@ -8,50 +8,16 @@ import type {
 	InferGetStaticPropsType,
 } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import path, { join } from 'path';
 import { useRef } from 'react';
 import styled from 'styled-components';
 import DefaultMeta from '../../components/DefaultMeta';
-import useStagger from '../../components/useStagger';
-import { CMS_PATH, UNKNOWN_MODEL } from '../../constants';
+import { CMS_PATH } from '../../constants';
+import useStagger from '../../hooks/useStagger';
 import fetchAllItems from '../../lib/fetchAllItems';
 import prepareForNextImage from '../../util/prepareForNextImage';
 import upperCaseFirst from '../../util/upperCaseFirst';
-
-const craftDir = join(CMS_PATH, 'craft');
-
-const Wrapper = styled.main`
-	.img-container {
-		position: relative;
-	}
-
-	.hero {
-		margin-block-start: calc(-1 * (var(--s3)));
-		width: 100vw;
-		height: 90vh;
-	}
-
-	a {
-		text-decoration: underline;
-	}
-
-	li {
-		max-width: max-content;
-	}
-
-	.grid {
-		justify-items: start;
-	}
-
-	.unknown {
-		font-style: italic;
-	}
-
-	.thumb {
-		clip-path: circle(50% at 50% 50%);
-	}
-`;
+import Section from '../../craft-area-view/Section';
 
 export default function CraftTopic({
 	title,
@@ -109,6 +75,40 @@ export default function CraftTopic({
 	);
 }
 
+const craftDir = join(CMS_PATH, 'craft');
+
+const Wrapper = styled.main`
+	.img-container {
+		position: relative;
+	}
+
+	.hero {
+		margin-block-start: calc(-1 * (var(--s3)));
+		width: 100vw;
+		height: 90vh;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	li {
+		max-width: max-content;
+	}
+
+	.grid {
+		justify-items: start;
+	}
+
+	.unknown {
+		font-style: italic;
+	}
+
+	.thumb {
+		clip-path: circle(50% at 50% 50%);
+	}
+`;
+
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
 	const topic = params!.topic as string;
 	const base = join(process.cwd(), craftDir, topic);
@@ -147,40 +147,3 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		fallback: false,
 	};
 };
-
-function Section({
-	title,
-	items,
-}: {
-	title: string;
-	items: InferGetStaticPropsType<typeof getStaticProps>[
-		| 'designers'
-		| 'products'];
-}) {
-	return (
-		<Stack as="section">
-			<h2 className="txt-m">{title}</h2>
-			<Grid min="125px" space="var(--s1)" as="ul" className="grid" data-stagger>
-				{items.map(({ name, slug, id, thumb }) => (
-					<li key={id}>
-						<div className="img-container">
-							<Image
-								className={title !== 'Designs' ? 'thumb' : ''}
-								src={thumb.src}
-								objectFit="contain"
-								width={64}
-								height={64}
-								placeholder="blur"
-								blurDataURL={thumb.blurDataUrl}
-								alt={name}
-							/>
-						</div>
-						<Link href={slug + (title === 'Designs' ? '#works' : '')}>
-							<a className={name === UNKNOWN_MODEL ? 'unknown' : ''}>{name}</a>
-						</Link>
-					</li>
-				))}
-			</Grid>
-		</Stack>
-	);
-}

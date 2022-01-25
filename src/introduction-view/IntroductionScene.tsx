@@ -1,9 +1,9 @@
-import Camera from '../components/camera';
-import Controls from '../components/controls';
-import Floor from '../components/floor';
-import Fog from '../components/fog';
-import HemiLight from '../components/hemiLight';
-import MainLight from '../components/mainLight';
+import Camera from '../common-3d/Camera';
+import Controls from '../common-3d/Controls';
+import Floor from '../common-3d/Floor';
+import Fog from '../common-3d/Fog';
+import HemisphereLight from '../common-3d/HemisphereLight';
+import MainLight from '../common-3d/MainLight';
 import CH25 from './ModelCH25';
 
 export default function Scene() {
@@ -16,7 +16,7 @@ export default function Scene() {
 				maxDistance={10}
 				minDistance={1}
 			/>
-			<HemiLight intensity={0.1} />
+			<HemisphereLight intensity={0.1} />
 			<MainLight
 				intensity={1}
 				position={[-1, 1, -1]}
