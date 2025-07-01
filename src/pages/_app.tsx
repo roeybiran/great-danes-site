@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app';
-import dynamic from 'next/dynamic';
+import { Leva } from 'leva';
 import 'sanitize.css';
-
 import SiteHeader from '../site-header';
 import '../styles/animations.css';
 import '../styles/external-link.css';
@@ -11,15 +10,10 @@ import '../styles/modular-scale.css';
 import '../styles/scrollbar.css';
 import '../styles/sr-only.css';
 
-/* @ts-ignore */
-const Leva = dynamic(() => import('leva').then((m) => m.Leva), { ssr: false });
-
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			{/* @ts-ignore */}
-			{process.env.NODE_ENV === 'development' ? <Leva collapsed /> : null}
-
+			<Leva collapsed hidden={process.env.NODE_ENV === 'production'} />
 			<SiteHeader />
 			<Component {...pageProps} />
 		</>
